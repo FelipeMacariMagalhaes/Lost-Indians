@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62d851dffc385249acbc651a96172b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1701879555}
+  target: {fileID: 0}
   lerpSpeed: 1
 --- !u!1 &1582454168
 GameObject:
@@ -749,6 +749,7 @@ GameObject:
   - component: {fileID: 1701879552}
   - component: {fileID: 1701879556}
   - component: {fileID: 1701879557}
+  - component: {fileID: 1701879558}
   m_Layer: 0
   m_Name: Down 0
   m_TagString: Untagged
@@ -881,10 +882,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1701879551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4854397bd6ae14c409d036e07936d4c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f38e73bc918b424f85ebffcffdb36f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 1582454173}
   speed: 10
+  jumpforce: 10
+  pointGround: {fileID: 1701879555}
+  ground:
+    serializedVersion: 2
+    m_Bits: 8
+  player: {fileID: 1701879557}
 --- !u!95 &1701879557
 Animator:
   serializedVersion: 7
@@ -895,10 +903,10 @@ Animator:
   m_GameObject: {fileID: 1701879551}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9e1cb89bae143d046bb9dba32b57bed0, type: 3}
-  m_Controller: {fileID: 9100000, guid: a6e05fdefce8cca4da1e70663e834221, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 1
-  m_ApplyRootMotion: 1
+  m_Controller: {fileID: 9100000, guid: 8fb9aa556c17cb748b856f4bff74c312, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 1
@@ -907,6 +915,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &1701879558
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701879551}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 2
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1874848278
 GameObject:
   m_ObjectHideFlags: 0
