@@ -891,7 +891,7 @@ MonoBehaviour:
   pointGround: {fileID: 1701879555}
   ground:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   player: {fileID: 1701879557}
 --- !u!95 &1701879557
 Animator:
