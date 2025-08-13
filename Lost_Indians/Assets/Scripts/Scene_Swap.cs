@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Scene_Swap : MonoBehaviour
 {
-    public void StartGame(string sceneName)
-    {
+    public string sceneName;
+   private void OnMouseDown ()
+    {        
         SceneManager.LoadScene(sceneName);
     }
 }
