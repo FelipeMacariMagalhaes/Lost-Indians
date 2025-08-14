@@ -501,6 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 496219110}
   - component: {fileID: 496219109}
+  - component: {fileID: 496219111}
   m_Layer: 0
   m_Name: Game_Controller
   m_TagString: Untagged
@@ -520,8 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824a30fc31690224ba6928be7a7ced80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Papel: {fileID: 871234431}
-  "Bot\xE3o": {fileID: 1266482694}
+  n: 3
 --- !u!4 &496219110
 Transform:
   m_ObjectHideFlags: 0
@@ -537,6 +537,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496219111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496219108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d008bfe8a9b595c43866d6595e7cd555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 1
+  y: 0
+  z: 1
+  w: 0
+  P: 5
+  N: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
