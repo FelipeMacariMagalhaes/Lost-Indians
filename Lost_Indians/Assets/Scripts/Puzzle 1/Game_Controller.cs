@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+
 public class Game_Controller : MonoBehaviour
 {
     public int foundObjects;
@@ -8,18 +9,24 @@ public class Game_Controller : MonoBehaviour
     public TMP_Text foundObjectsTxt;
     public UnityEvent OnVictory;
 
-    private void Update()
+    private void Start()
     {
-        foundObjectsTxt.text = foundObjects + "/" + objectsAmount;
+        UpdateFoundText();
     }
+
     public void FoundObject()
     {
         foundObjects++;
+        UpdateFoundText();
+
         if (foundObjects >= objectsAmount)
         {
             OnVictory.Invoke();
         }
     }
-
+    private void UpdateFoundText()
+    {
+        foundObjectsTxt.text = foundObjects + "/" + objectsAmount;
+    }
 }
 
