@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8206914968f523e41a5432d3991398d0
+guid: 5f54e587902e00a4c808249c306b27d5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1165074834127058619
-    second: bookanimationsheet_0
+      213: -2612257301339723111
+    second: Back_Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bookanimationsheet_0
+      name: Back_Button_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1080
-        height: 1080
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb6f3e8836d2b2010800000000000000
-      internalID: 1165074834127058619
+      spriteID: 99aa9b323d56fbbd0800000000000000
+      internalID: -2612257301339723111
       vertices: []
       indices: 
       edges: []
