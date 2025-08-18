@@ -4,7 +4,8 @@ public class Interação_Objetros : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     Game_Controller gameController;
-    bool isFounded;
+    bool isFounded = false;
+
     public string Objeto_Name_Dissapear = "Objeto";
     private GameObject objectToDissapear;
 
@@ -23,19 +24,19 @@ public class Interação_Objetros : MonoBehaviour
     }
 
 
-    private void OnMouseDown()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!isFounded)
+        if (!isFounded && other.CompareTag("Player"))
         {
             spriteRenderer.color = Color.green;
 
-            gameController.FoundObject();
+            if (gameController != null)
+                gameController.FoundObject();
 
             if (objectToDissapear != null)
                 objectToDissapear.SetActive(false);
 
-
             isFounded = true;
         }
-    }   
+    }
 }
