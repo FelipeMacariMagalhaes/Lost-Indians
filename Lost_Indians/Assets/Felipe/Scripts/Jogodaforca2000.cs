@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class Jogodaforca2000 : MonoBehaviour
 {
-  
+
     [SerializeField] private TextMeshProUGUI textoForca;
     [SerializeField] private TextMeshProUGUI AVISO;
     [SerializeField] private TMP_InputField letra;
     [SerializeField] private Button verificarButton;
-
-    [SerializeField] private string palavraSecreta = "MAIRA";
-
+    [SerializeField] public string palavraSecreta = "MAIRA";
+    
 
     void Start()
     {
@@ -24,6 +23,7 @@ public class Jogodaforca2000 : MonoBehaviour
         }
         verificarButton.onClick.AddListener(VerificarLetra);
     }
+
 
     public void VerificarLetra()
     {
@@ -55,13 +55,7 @@ public class Jogodaforca2000 : MonoBehaviour
             AVISO.color = Color.red;
         }
         letra.text = "";
-        if (textoForca.text == palavraSecreta)
-        {
-            AVISO.text = "Parabéns! Você adivinhou a palavra, aqui esta seu prêmio!";
-            AVISO.color = Color.blue;
-            letra.gameObject.SetActive(false);
-            verificarButton.gameObject.SetActive(false);
-        }
+
     }
 }
 
