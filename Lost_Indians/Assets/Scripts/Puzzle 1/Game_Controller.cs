@@ -26,7 +26,7 @@ public class Game_Controller : MonoBehaviour
     }
     private void UpdateFoundText()
     {
-        foundObjectsTxt.text = foundObjects + "/" + objectsAmount;
+        foundObjectsTxt.text = "Objetos coletados " + foundObjects + "/" + objectsAmount;
     }
 }
 
