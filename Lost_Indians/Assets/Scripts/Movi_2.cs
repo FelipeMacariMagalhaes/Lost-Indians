@@ -27,7 +27,7 @@ public class PlayerMovement2D : MonoBehaviour
         moveInput = Input.GetAxis("Horizontal");
         Move();
         Jump();
-        Animate();
+        //Animate();
     }
 
     void Move()
@@ -51,11 +51,11 @@ public class PlayerMovement2D : MonoBehaviour
         }
     }
 
-    void Animate()
-    {
-        animator.SetFloat("Speed", Mathf.Abs(moveInput));
-        animator.SetBool("IsJumping", !isGrounded);
-    }
+    //void Animate()
+   // {
+     //   animator.SetFloat("Speed", Mathf.Abs(moveInput));
+      //  animator.SetBool("IsJumping", !isGrounded);
+   // }
 
     void OnDrawGizmosSelected()
     {
