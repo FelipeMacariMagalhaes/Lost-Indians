@@ -57,6 +57,7 @@ public class Jogodaforca2000 : MonoBehaviour
         letra.text = "";
 
     }
+    
 }
 
 

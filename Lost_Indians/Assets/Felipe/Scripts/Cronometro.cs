@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 using TMPro;
 using UnityEngine.UI;
-using System.Numerics;
+
 
 
 public class Cronometro : MonoBehaviour
@@ -10,9 +11,6 @@ public class Cronometro : MonoBehaviour
     [SerializeField] public Button btn;
 
     public TextMeshProUGUI textoCronometro;
-    
-    public GameObject painelVitoria;
-
     public GameObject painelDerrota;
     public Jogodaforca2000 Jogodaforca2000;
     public GameObject cronometragem;
@@ -26,9 +24,11 @@ public class Cronometro : MonoBehaviour
     void Start()
 
     {
+        
+
         Jogodaforca2000 = FindObjectOfType<Jogodaforca2000>();
 
-        painelVitoria.SetActive(false);
+        
 
         painelDerrota.SetActive(false);
 
@@ -111,47 +111,39 @@ public class Cronometro : MonoBehaviour
     public void MostrarVitoria()
 
     {
-
-        painelVitoria.SetActive(true);
         cronometragem.SetActive(false);
-        Debug.Log(" Vitória! Palavra secreta: " + Jogodaforca2000.palavraSecreta);
+        painelDerrota.SetActive(false);
+        SceneManager.LoadScene("Recompensas");
 
-        Time.timeScale = 0f;
-       
-        
-           
-        
-        
 
-        
 
     }
 
     public void MostrarDerrota()
 
     {
-
         painelDerrota.SetActive(true);
         cronometragem.SetActive(false);
+
         textoCronometro.color = Color.red;
 
         Time.timeScale = 0f;
-
     }
 
     // chamado pelo botao famoso Tentar de novo
 
     public void TentarDeNovo()
-
     {
 
-        Time.timeScale = 1f; // jogo volta
+        Time.timeScale = 3f; // jogo volta
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
 
 }
+
+
  
 
 
