@@ -1,15 +1,25 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Tentativas : MonoBehaviour
 {
     public int tentativasMaximas = 3;
-    private int tentativasRestantes;
-    public Text textoTentativas; 
+    public static int tentativasRestantes; // é global (static)
+    public TextMeshProUGUI textoTentativas;
+    public Button botaoTentativas;
 
     void Start()
     {
-        tentativasRestantes = tentativasMaximas;
+
+        if (tentativasRestantes == 0)
+            tentativasRestantes = tentativasMaximas;
+
         AtualizarTextoTentativas();
+
+        if (botaoTentativas != null)
+            botaoTentativas.onClick.AddListener(DiminuirTentativas);
     }
 
     public void DiminuirTentativas()
@@ -19,22 +29,23 @@ public class Tentativas : MonoBehaviour
 
         if (tentativasRestantes <= 0)
         {
-            
-            Debug.Log("Sem tentativas restantes!");
-            
+            textoTentativas.text = "Sem tentativas restantes!";
+            ResetarTentativas();
         }
     }
 
     void AtualizarTextoTentativas()
     {
-        textoTentativas.text = "Tentativas: " + tentativasRestantes;
+        if (textoTentativas != null)
+            textoTentativas.text = "Tentativas: " + tentativasRestantes;
     }
 
-    
     public void ResetarTentativas()
     {
         tentativasRestantes = tentativasMaximas;
         AtualizarTextoTentativas();
+
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-}
 }
