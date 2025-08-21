@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 386555785}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -238.6, y: 19.6, z: -2295}
+  m_LocalPosition: {x: -203.5, y: 0.9, z: -2295}
   m_LocalScale: {x: 25.499994, y: 25.499994, z: 25.499994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -767,7 +767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.1799927, y: 103.600006}
+  m_AnchoredPosition: {x: 0.69999695, y: 103.600006}
   m_SizeDelta: {x: 8.36, y: -194.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1672157593
@@ -825,8 +825,6 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -7967440187444157856, guid: fbe87dd7e250bb741a925263871bca36, type: 2}
     value: {fileID: 1914932752}
-  - key: {fileID: 1547702680390296726, guid: fbe87dd7e250bb741a925263871bca36, type: 2}
-    value: {fileID: 1672157596}
   m_ExposedReferences:
     m_References: []
 --- !u!95 &1672157596
@@ -948,7 +946,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -113.17999, y: -6.6999893}
+  m_AnchoredPosition: {x: -103.3, y: -6.6999893}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1914932750
@@ -980,7 +978,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1005,7 +1003,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
