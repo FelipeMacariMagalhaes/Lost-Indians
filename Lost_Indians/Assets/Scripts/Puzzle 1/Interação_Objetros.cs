@@ -26,18 +26,18 @@ public class Interação_Objetros : MonoBehaviour
         {
             isFounded = true; 
             spriteRenderer.color = Color.green;
-            Debug.Log("Objeto encontrado");
+           
 
             if (objectToDissapear != null)
             {
                 objectToDissapear.SetActive(false);
-                Debug.Log("Desaparecimento");
+                
             }
 
             if (gameController != null)
             {
                 gameController.FoundObject();
-                Debug.Log("Contabilização no gamecontroller");
+               
             }
         }
     }
