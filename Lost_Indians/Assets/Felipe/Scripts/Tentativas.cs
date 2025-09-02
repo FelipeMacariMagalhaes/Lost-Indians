@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class Tentativas : MonoBehaviour
 {
     public int tentativasMaximas = 3;
-    public static int tentativasRestantes; // é global (static)
+    public static int tentativasRestantes; // ?? Global
     public TextMeshProUGUI textoTentativas;
     public Button botaoTentativas;
 
     void Start()
     {
-
         if (tentativasRestantes == 0)
             tentativasRestantes = tentativasMaximas;
 
         AtualizarTextoTentativas();
 
+        // ?? Só adiciona se tiver botão
         if (botaoTentativas != null)
             botaoTentativas.onClick.AddListener(DiminuirTentativas);
     }
@@ -44,8 +44,6 @@ public class Tentativas : MonoBehaviour
     {
         tentativasRestantes = tentativasMaximas;
         AtualizarTextoTentativas();
-
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
