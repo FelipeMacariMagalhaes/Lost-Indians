@@ -49,5 +49,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Frente1
+    uniqueID: 343888441
+    locked: 0
   m_RenderingLayers:
   - Default

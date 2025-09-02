@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Door_SceneSwap : MonoBehaviour
 {
-    public string sceneName;
+    public string sceneName;    
     void Start()
     {
 
@@ -10,7 +10,11 @@ public class Door_SceneSwap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D Player)
     {
-        SceneManager.LoadScene(sceneName);
+        if (CompareTag("Player"))
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+
     }
     
 }
