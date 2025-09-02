@@ -13,6 +13,7 @@ public class Door_SceneSwap : MonoBehaviour
         if (CompareTag("Player"))
         {
             SceneManager.LoadScene(sceneName);
+            Debug.Log("Colidiu");
         }
 
     }
