@@ -6,6 +6,7 @@ public class AnimarBau : MonoBehaviour
         private AudioSource audioSource;
         private bool jogadorPerto = false;
         private bool aberto = false;
+        private bool JaAbriu;
         void Start()
         {
             animator = GetComponent<Animator>();
@@ -23,20 +24,28 @@ public class AnimarBau : MonoBehaviour
 
         void AbrirBau()
         {
-            aberto = true;
-            animator.SetBool("Abrindo", true);
             audioSource.Play();
+            if (!JaAbriu) 
+        {
+               if (animator != null)
+            {
+                animator.SetTrigger("Abrir"); 
+                JaAbriu = true; 
+            }
         }
+    }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
                 jogadorPerto = true;
+            AbrirBau();
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
                 jogadorPerto = false;
+            AbrirBau();
         }
     }
