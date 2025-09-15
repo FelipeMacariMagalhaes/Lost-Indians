@@ -8,17 +8,20 @@ public class GerenciadorDeDialogo : MonoBehaviour
     public TextMeshProUGUI textoNPC;
     public TextMeshProUGUI textoJogador;
     public GameObject painelEscolhas;
+
     public string[] falasNPC;
     public string[] falasJogador;
+
     public string[] falasPosBemNPC;
     public string[] falasPosBemJogador;
     public string[] falasPosMalNPC;
     public string[] falasPosMalJogador;
+    
     public GameObject npcBruxa;
+
     private int indiceFala = 0;
     public bool dialogoAtivo = false;
     private bool esperandoEscolha = false;
-    
 
     void Start()
     {
@@ -111,13 +114,11 @@ public class GerenciadorDeDialogo : MonoBehaviour
 
             textoNPC.text = "";
             textoJogador.text = falasJogador[i];
-
             yield return new WaitForSecondsRealtime(2f);
         }
 
         
     }
-
 
     
 }
