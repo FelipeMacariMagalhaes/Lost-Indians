@@ -21,5 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Puzzle3.unity
     guid: 7e54b52f6ebe8f24fb913e3c9b058446
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 9b9f4c88e607720499925aa63ec27d21, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
