@@ -6,19 +6,33 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;  
     public TextMeshProUGUI messageText; 
     public TextMeshProUGUI contadorText; 
-    private float TempoDeTexto;
+
+    private float tempoMensagem;
+    private float tempoContador;
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
     {
-        if (messageText.enabled && Time.time >= TempoDeTexto)
+        if (messageText.enabled && Time.time >= tempoMensagem)
         {
             messageText.enabled = false;
+        }
+
+        if (contadorText.enabled && Time.time >= tempoContador)
+        {
+            contadorText.enabled = false;
         }
     }
 
@@ -26,15 +40,17 @@ public class UIManager : MonoBehaviour
     {
         messageText.text = message;
         messageText.enabled = true;
-        TempoDeTexto = Time.time + duration;
+        tempoMensagem = Time.time + duration;
     }
 
-    // Método para atualizar o contador de livros
-    public void AtualizarContador(int quantidade)
+    // Método para atualizar o contador de livros e deixar visível por 'duration' segundos
+    public void AtualizarContador(int quantidade, float duration = 10f)
     {
         if (contadorText != null)
         {
             contadorText.text = "Livros coletados: " + quantidade;
+            contadorText.enabled = true;
+            tempoContador = Time.time + duration;
         }
     }
 }
