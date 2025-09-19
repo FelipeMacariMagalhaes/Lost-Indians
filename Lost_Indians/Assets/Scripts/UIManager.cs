@@ -6,10 +6,9 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;  
     public TextMeshProUGUI messageText; 
     public TextMeshProUGUI contadorText; 
-
     private float tempoMensagem;
     private float tempoContador;
-
+    
     private void Awake()
     {
         if (Instance == null)
@@ -22,7 +21,7 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     private void Update()
     {
         if (messageText.enabled && Time.time >= tempoMensagem)
@@ -43,7 +42,7 @@ public class UIManager : MonoBehaviour
         tempoMensagem = Time.time + duration;
     }
 
-    // Método para atualizar o contador de livros e deixar visível por 'duration' segundos
+    // Método para atualizar o contador de livros 
     public void AtualizarContador(int quantidade, float duration = 10f)
     {
         if (contadorText != null)

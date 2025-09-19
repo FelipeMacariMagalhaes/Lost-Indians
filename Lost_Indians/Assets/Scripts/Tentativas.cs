@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Tentativas : MonoBehaviour
 {
     public int tentativasMaximas = 3;
-    public static int tentativasRestantes; // ?? Global
+    public static int tentativasRestantes; 
     public TextMeshProUGUI textoTentativas;
     public Button botaoTentativas;
 
@@ -17,7 +17,7 @@ public class Tentativas : MonoBehaviour
 
         AtualizarTextoTentativas();
 
-        // ?? Só adiciona se tiver botão
+        //  So adiciona se tiver botï¿½o
         if (botaoTentativas != null)
             botaoTentativas.onClick.AddListener(DiminuirTentativas);
     }
