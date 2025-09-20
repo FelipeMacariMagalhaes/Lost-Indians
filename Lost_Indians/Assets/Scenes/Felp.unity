@@ -409,6 +409,36 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &708450749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6904531743315468648, guid: 09db3497b8941984e80566fb7da7da5a, type: 3}
+  m_PrefabInstance: {fileID: 995255197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &708450752 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6690420158836529086, guid: 09db3497b8941984e80566fb7da7da5a, type: 3}
+  m_PrefabInstance: {fileID: 995255197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &708450753 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5868460839525346908, guid: 09db3497b8941984e80566fb7da7da5a, type: 3}
+  m_PrefabInstance: {fileID: 995255197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &708450756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708450749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ac246a7df088c4cb00194a1c2fa075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 4.93
+  rb: {fileID: 708450753}
+  animator: {fileID: 708450752}
 --- !u!1 &874427440
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,14 +631,26 @@ PrefabInstance:
       propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5868460839525346908, guid: 09db3497b8941984e80566fb7da7da5a, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690420158836529086, guid: 09db3497b8941984e80566fb7da7da5a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a6e05fdefce8cca4da1e70663e834221, type: 2}
     - target: {fileID: 6904531743315468648, guid: 09db3497b8941984e80566fb7da7da5a, type: 3}
       propertyPath: m_Name
       value: Jogador
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3676676313736246674, guid: 09db3497b8941984e80566fb7da7da5a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6904531743315468648, guid: 09db3497b8941984e80566fb7da7da5a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 708450756}
   m_SourcePrefab: {fileID: 100100000, guid: 09db3497b8941984e80566fb7da7da5a, type: 3}
 --- !u!20 &995255198 stripped
 Camera:
