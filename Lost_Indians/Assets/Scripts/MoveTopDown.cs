@@ -46,13 +46,6 @@ public class MoveTopDown : MonoBehaviour
             animator.SetFloat("LastMoveX", movement.x);
             animator.SetFloat("LastMoveY", movement.y);
         }
-
-        float lastMoveX = animator.GetFloat("LastMoveX");
-
-        if (lastMoveX < 0)
-            spriteRenderer.flipX = true;
-        else if (lastMoveX > 0)
-            spriteRenderer.flipX = false;
     }
 
     void FixedUpdate()
