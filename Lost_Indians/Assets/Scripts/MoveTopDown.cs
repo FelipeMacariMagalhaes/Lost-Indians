@@ -30,13 +30,12 @@ public class MoveTopDown : MonoBehaviour
 
     void Update()
     {
+        //Input de move
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-
         movement = new Vector2(horizontal, vertical).normalized;
-
+        //Animator
         bool isMoving = movement != Vector2.zero;
-
         animator.SetBool("EstaMovendo", isMoving);
         animator.SetFloat("MoveEixoX", movement.x);
         animator.SetFloat("MoveEixoY", movement.y);
