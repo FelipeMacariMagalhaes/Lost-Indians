@@ -7,7 +7,17 @@ public class NPCDialogueTrigger : MonoBehaviour
     public string npcName = "NPC";
     public Sprite npcPortrait;
 
+    [Header("UI de Interacao")]
+    public GameObject uINpc;
     private bool playerInRange;
+
+    void Start()
+    {
+        if(uINpc != null)
+        {
+            uINpc.SetActive(false);
+        }
+    }
 
     void Update()
     {
@@ -22,6 +32,8 @@ public class NPCDialogueTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            if(uINpc !=null)
+               uINpc.SetActive(true);
         }
     }
 
@@ -30,6 +42,8 @@ public class NPCDialogueTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            if(uINpc !=null)
+               uINpc.SetActive(false);
         }
     }
 }

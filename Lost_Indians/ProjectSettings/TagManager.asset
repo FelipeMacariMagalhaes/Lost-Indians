@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ground
   - Chest
+  - Escada
   layers:
   - Default
   - TransparentFX
