@@ -32,7 +32,7 @@ public class GerenciadorDeDialogo : MonoBehaviour
 
     void Update()
     {
-        if (dialogoAtivo && !esperandoEscolha && Input.GetKeyDown(KeyCode.Space))
+        if (dialogoAtivo && !esperandoEscolha && Input.GetKeyDown(KeyCode.E))
         {
             AvancarFala();
         }
@@ -40,15 +40,12 @@ public class GerenciadorDeDialogo : MonoBehaviour
 
     public void IniciarDialogo()
     {
-
         if (falasNPC.Length == 0 || falasJogador.Length == 0) return;
 
         indiceFala = 0;
         painelDialogo.SetActive(true);
         AtualizarFalas();
         dialogoAtivo = true;
-
-        
     }
 
     void AvancarFala()
@@ -67,7 +64,7 @@ public class GerenciadorDeDialogo : MonoBehaviour
         }
         else if (!esperandoEscolha)
         {
-           
+            
         }
     }
 
@@ -81,8 +78,6 @@ public class GerenciadorDeDialogo : MonoBehaviour
     {
         painelEscolhas.SetActive(true);
     }
-
-
 
     public void EscolherBem()
     {
@@ -100,8 +95,6 @@ public class GerenciadorDeDialogo : MonoBehaviour
         StartCoroutine(MostrarFalasAlternadas(falasPosMalNPC, falasPosMalJogador));
     }
 
-
-
     IEnumerator MostrarFalasAlternadas(string[] falasNPC, string[] falasJogador)
     {
         int total = Mathf.Min(falasNPC.Length, falasJogador.Length);
@@ -116,9 +109,5 @@ public class GerenciadorDeDialogo : MonoBehaviour
             textoJogador.text = falasJogador[i];
             yield return new WaitForSecondsRealtime(2f);
         }
-
-        
     }
-
-    
 }

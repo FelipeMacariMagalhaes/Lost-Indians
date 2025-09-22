@@ -2,28 +2,26 @@ using UnityEngine;
 
 public class NPCDialogueTrigger : MonoBehaviour
 {
-    [TextArea(3, 10)]
+    [Header("Interação")]
+    public GameObject pressEUI; 
+
+    [Header("Diálogo")]
     public string[] dialogueLines;
     public string npcName = "NPC";
-    public Sprite npcPortrait;
 
-    [Header("UI de Interacao")]
-    public GameObject uINpc;
-    private bool playerInRange;
+    private bool playerInRange = false;
 
     void Start()
     {
-        if(uINpc != null)
-        {
-            uINpc.SetActive(false);
-        }
+        if (pressEUI != null)
+            pressEUI.SetActive(false);
     }
 
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            DialogueManager.instance.StartDialogue(dialogueLines, npcName, npcPortrait);
+            DialogueManager.instance.StartDialogue(dialogueLines, npcName);
         }
     }
 
@@ -32,8 +30,8 @@ public class NPCDialogueTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            if(uINpc !=null)
-               uINpc.SetActive(true);
+            if (pressEUI != null)
+                pressEUI.SetActive(true);
         }
     }
 
@@ -42,8 +40,8 @@ public class NPCDialogueTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            if(uINpc !=null)
-               uINpc.SetActive(false);
+            if (pressEUI != null)
+                pressEUI.SetActive(false);
         }
     }
 }

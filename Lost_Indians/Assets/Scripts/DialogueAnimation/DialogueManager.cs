@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -9,7 +8,6 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
-    public Image portraitImage;
 
     [Header("Typing Settings")]
     public float typingSpeed = 0.03f;
@@ -33,36 +31,22 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
     }
 
-    public void StartDialogue(string[] dialogueLines, string npcName = "", Sprite portrait = null)
+    public void StartDialogue(string[] dialogueLines, string npcName = "")
     {
         lines = dialogueLines;
         index = 0;
         dialoguePanel.SetActive(true);
 
-        // Nome do NPC
         if (nameText != null)
             nameText.text = npcName;
-
-        // Retrato
-        if (portraitImage != null)
-        {
-            if (portrait != null)
-            {
-                portraitImage.sprite = portrait;
-                portraitImage.gameObject.SetActive(true);
-            }
-            else
-            {
-                portraitImage.gameObject.SetActive(false);
-            }
-        }
 
         StartCoroutine(TypeLine());
     }
 
     void Update()
     {
-        if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.Space))
+        // Avança diálogo com E
+        if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.E))
         {
             if (isTyping)
             {
