@@ -981,7 +981,7 @@ Canvas:
   m_GameObject: {fileID: 1043707861}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 995255198}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1641,7 +1641,6 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1088759294}
   dialogueText: {fileID: 280759649}
   nameText: {fileID: 1471194380}
-  portraitImage: {fileID: 1088759296}
   typingSpeed: 0.03
 --- !u!4 &1544655622
 Transform:
