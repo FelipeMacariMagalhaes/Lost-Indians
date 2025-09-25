@@ -18513,6 +18513,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 372356524076685887, guid: 8b0392a3401e7d148b8111bb785fd30d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1693448379352749658, guid: 8b0392a3401e7d148b8111bb785fd30d, type: 3}
       propertyPath: pressEUI
       value: 
@@ -50476,16 +50480,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 458397853521962967, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3040271
+      objectReference: {fileID: 0}
+    - target: {fileID: 458397853521962967, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3040271
+      objectReference: {fileID: 0}
+    - target: {fileID: 458397853521962967, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3040271
+      objectReference: {fileID: 0}
+    - target: {fileID: 458397853521962967, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.67
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 458397853521962967, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.43
+      value: -1.42
       objectReference: {fileID: 0}
     - target: {fileID: 458397853521962967, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.763
       objectReference: {fileID: 0}
     - target: {fileID: 458397853521962967, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
       propertyPath: m_LocalRotation.w
@@ -50730,7 +50746,7 @@ GameObject:
   - component: {fileID: 1989786747}
   - component: {fileID: 1989786750}
   m_Layer: 0
-  m_Name: AAA
+  m_Name: MiragemDarcy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50793,7 +50809,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 86d048c9e2620f74690aa9ea1328dab8, type: 3}
+  m_Sprite: {fileID: 6988902042220512309, guid: 5e6908f22fac4e045b9978ea71423096, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -50813,15 +50829,15 @@ Transform:
   m_GameObject: {fileID: 1989786746}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.64, y: 0.45, z: 0}
-  m_LocalScale: {x: 0.5101, y: 0.675, z: 1}
+  m_LocalPosition: {x: 4.52, y: -0.14, z: 0}
+  m_LocalScale: {x: 1.5720993, y: 2.0803118, z: 3.0819433}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1365226921}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1989786750
-BoxCollider2D:
+--- !u!70 &1989786750
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -50855,17 +50871,8 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 1.0666667}
-    newSize: {x: 4.8, y: 4.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.50000006, y: 1.25}
+  m_Direction: 0
 --- !u!1 &2015209323
 GameObject:
   m_ObjectHideFlags: 0
