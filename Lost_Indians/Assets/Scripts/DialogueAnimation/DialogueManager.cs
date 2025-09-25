@@ -45,8 +45,8 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        // Avança diálogo com E
-        if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.E))
+
+        if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.Space))
         {
             if (isTyping)
             {
