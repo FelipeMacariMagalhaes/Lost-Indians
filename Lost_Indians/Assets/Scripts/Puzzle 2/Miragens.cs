@@ -41,32 +41,32 @@ public class Miragens : MonoBehaviour
         particleObj.transform.position = transform.position;
 
         ParticleSystem ps = particleObj.AddComponent<ParticleSystem>();
+        ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
         var main = ps.main;
-        main.duration = 1f;
         main.loop = false;
+        main.duration = 1f;
         main.startLifetime = new ParticleSystem.MinMaxCurve(0.6f, 1.2f);
         main.startSpeed = new ParticleSystem.MinMaxCurve(0.5f, 1f);
         main.startSize = new ParticleSystem.MinMaxCurve(0.05f, 0.15f);
-        main.startColor = new Color(0.68f, 0.9f, 1f, 1f);
         main.simulationSpace = ParticleSystemSimulationSpace.World;
+        main.playOnAwake = false;
 
         var emission = ps.emission;
         emission.rateOverTime = 0;
-        emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0f, 50, 80) });
+        emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0f, 100, 150) }); // mais partículas
 
         var shape = ps.shape;
         shape.shapeType = ParticleSystemShapeType.Sphere;
-        shape.radius = 0.1f;
-
+        shape.radius = 0.15f;
         var colorOverLifetime = ps.colorOverLifetime;
         colorOverLifetime.enabled = true;
         Gradient grad = new Gradient();
         grad.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(new Color(0.68f, 0.9f, 1f), 0f), new GradientColorKey(new Color(0.68f, 0.9f, 1f, 0f), 1f) },
+            new GradientColorKey[] { new GradientColorKey(new Color(0.8f, 0.5f, 1f), 0f), new GradientColorKey(new Color(0.68f, 0.9f, 1f), 1f) },
             new GradientAlphaKey[] { new GradientAlphaKey(1f, 0f), new GradientAlphaKey(0f, 1f) }
         );
         colorOverLifetime.color = grad;
-
         var sizeOverLifetime = ps.sizeOverLifetime;
         sizeOverLifetime.enabled = true;
         AnimationCurve curve = new AnimationCurve();
