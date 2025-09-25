@@ -15494,6 +15494,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1693448379352749658, guid: 8b0392a3401e7d148b8111bb785fd30d, type: 3}
+      propertyPath: pressEUI
+      value: 
+      objectReference: {fileID: 1482444534}
     - target: {fileID: 4671958789182408991, guid: 8b0392a3401e7d148b8111bb785fd30d, type: 3}
       propertyPath: m_Name
       value: pixil-frame-0 (1)_0
@@ -15964,7 +15968,7 @@ GameObject:
   - component: {fileID: 1366035976}
   - component: {fileID: 1366035975}
   m_Layer: 0
-  m_Name: pixilart-drawing (2)_0
+  m_Name: Cabana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17031,6 +17035,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1482444534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 372356524076685887, guid: 8b0392a3401e7d148b8111bb785fd30d, type: 3}
+  m_PrefabInstance: {fileID: 805426477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1506182642
 GameObject:
   m_ObjectHideFlags: 0
