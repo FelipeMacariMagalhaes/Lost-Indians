@@ -46900,8 +46900,8 @@ Transform:
   m_GameObject: {fileID: 1758207806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.35, y: 4.84, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 29.5, y: 3.9, z: 0}
+  m_LocalScale: {x: 0.78787, y: 0.78787, z: 0.78787}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -46940,8 +46940,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.057946205, y: -1.0430403}
-  m_Radius: 7.3724127
+  m_Offset: {x: -0.41362286, y: -0.2670169}
+  m_Radius: 6.240712
 --- !u!1001 &1766857941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48286,6 +48286,38 @@ PrefabInstance:
     - target: {fileID: 1865260291029102447, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348022132761013087, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348022132761013087, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348022132761013087, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348022132761013087, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348022132761013087, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348022132761013087, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348022132761013087, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348022132761013087, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5868460839525346908, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
       propertyPath: m_GravityScale
