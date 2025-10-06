@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
+    public Button acceptQuestButton;
 
     [Header("Typing Settings")]
     public float typingSpeed = 0.03f;
@@ -29,6 +31,14 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialoguePanel.SetActive(false);
+
+        // Botão sempre desativado até o final do diálogo
+        if (acceptQuestButton != null)
+            acceptQuestButton.gameObject.SetActive(false);
+
+        // Adiciona listener para o botão
+        if (acceptQuestButton != null)
+            acceptQuestButton.onClick.AddListener(AcceptQuest);
     }
 
     public void StartDialogue(string[] dialogueLines, string npcName = "")
@@ -40,12 +50,15 @@ public class DialogueManager : MonoBehaviour
         if (nameText != null)
             nameText.text = npcName;
 
+        // Esconde botão no início
+        if (acceptQuestButton != null)
+            acceptQuestButton.gameObject.SetActive(false);
+
         StartCoroutine(TypeLine());
     }
 
     void Update()
     {
-
         if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.Space))
         {
             if (isTyping)
@@ -85,7 +98,23 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            // Chegou na última linha, mostra o botão de aceitar missão
+            if (acceptQuestButton != null)
+                acceptQuestButton.gameObject.SetActive(true);
+        }
+    }
+
+    // 🔹 Botão de aceitar missão
+    public void AcceptQuest()
+    {
+        // Inicia a missão se ainda não estiver ativa
+        if (!QuestManager.instance.IsQuestActive())
+        {
+            QuestManager.instance.StartQuest("Missão do NPC");
+            // Fecha o painel de diálogo
             dialoguePanel.SetActive(false);
+            // Esconde o botão
+            acceptQuestButton.gameObject.SetActive(false);
         }
     }
 }
