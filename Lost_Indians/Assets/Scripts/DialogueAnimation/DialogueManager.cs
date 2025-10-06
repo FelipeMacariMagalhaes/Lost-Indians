@@ -32,13 +32,11 @@ public class DialogueManager : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
 
-        // Botão sempre desativado até o final do diálogo
         if (acceptQuestButton != null)
+        {
             acceptQuestButton.gameObject.SetActive(false);
-
-        // Adiciona listener para o botão
-        if (acceptQuestButton != null)
             acceptQuestButton.onClick.AddListener(AcceptQuest);
+        }
     }
 
     public void StartDialogue(string[] dialogueLines, string npcName = "")
@@ -50,7 +48,6 @@ public class DialogueManager : MonoBehaviour
         if (nameText != null)
             nameText.text = npcName;
 
-        // Esconde botão no inicio
         if (acceptQuestButton != null)
             acceptQuestButton.gameObject.SetActive(false);
 
@@ -98,23 +95,16 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            // Chegou na última linha, mostra o botão de aceitar missão
             if (acceptQuestButton != null)
                 acceptQuestButton.gameObject.SetActive(true);
         }
     }
 
-    // Botão de aceitar missão
-    public void AcceptQuest()
+    void AcceptQuest()
     {
-        // Inicia a missão se ainda não estiver ativa
-        if (!QuestManager.instance.IsQuestActive())
-        {
-            QuestManager.instance.StartQuest("Missão do NPC");
-            // Fecha o painel de diálogo
-            dialoguePanel.SetActive(false);
-            // Esconde o botão
-            acceptQuestButton.gameObject.SetActive(false);
-        }
+        QuestManager.instance.StartQuest("Missão do NPC");
+
+        dialoguePanel.SetActive(false);
+        acceptQuestButton.gameObject.SetActive(false);
     }
 }

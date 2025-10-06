@@ -5,11 +5,13 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
 
+    [Header("UI")]
     public GameObject questPanel;
     public TextMeshProUGUI questTitleText;
     public TextMeshProUGUI questDescriptionText;
 
-    private bool questActive = false;
+    private bool questUnlocked = false; 
+    private bool questActive = false;   
 
     void Awake()
     {
@@ -26,10 +28,12 @@ public class QuestManager : MonoBehaviour
 
     public void StartQuest(string questName)
     {
+        questUnlocked = true;
         questActive = true;
+
         questPanel.SetActive(true);
         questTitleText.text = questName;
-        questDescriptionText.text = "aaa";
+        questDescriptionText.text = "AAA";
     }
 
     public bool IsQuestActive()
@@ -45,7 +49,7 @@ public class QuestManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (questUnlocked && Input.GetKeyDown(KeyCode.M))
         {
             questPanel.SetActive(!questPanel.activeSelf);
         }
