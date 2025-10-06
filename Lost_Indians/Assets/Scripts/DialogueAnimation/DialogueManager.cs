@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
+    public Button acceptQuestButton;
 
     [Header("Typing Settings")]
     public float typingSpeed = 0.03f;
@@ -29,6 +31,11 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialoguePanel.SetActive(false);
+        if (acceptQuestButton != null)
+            acceptQuestButton.gameObject.SetActive(false);
+
+        if (acceptQuestButton != null)
+            acceptQuestButton.onClick.AddListener(AcceptQuest);
     }
 
     public void StartDialogue(string[] dialogueLines, string npcName = "")
@@ -40,12 +47,14 @@ public class DialogueManager : MonoBehaviour
         if (nameText != null)
             nameText.text = npcName;
 
+        if (acceptQuestButton != null)
+            acceptQuestButton.gameObject.SetActive(false);
+
         StartCoroutine(TypeLine());
     }
 
     void Update()
     {
-
         if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.Space))
         {
             if (isTyping)
@@ -85,7 +94,15 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            dialoguePanel.SetActive(false);
+            if (acceptQuestButton != null)
+                acceptQuestButton.gameObject.SetActive(true);
         }
+    }
+
+    void AcceptQuest()
+    {
+        QuestManager.instance.StartQuest("Missão do NPC");
+        dialoguePanel.SetActive(false);
+        acceptQuestButton.gameObject.SetActive(false);
     }
 }
