@@ -1472,7 +1472,61 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Livros_animation_0: -4503985873568583961
+      Livros_animation_1: -5917139872167189604
+      Livros_animation_10: -6749919354604207611
+      Livros_animation_11: 344597540661404703
+      Livros_animation_12: -4604012762765617914
+      Livros_animation_13: 2205437438880056048
+      Livros_animation_14: 2939588886025365501
+      Livros_animation_15: 2540735983261739653
+      Livros_animation_16: -7311813790068644541
+      Livros_animation_17: 674906048028765383
+      Livros_animation_18: -8081408835565205194
+      Livros_animation_19: -71431237283770580
+      Livros_animation_2: -5978289359546428662
+      Livros_animation_20: -7122438320166107333
+      Livros_animation_21: -3968265093641664019
+      Livros_animation_22: -6403972260313706791
+      Livros_animation_23: 3387006591855581922
+      Livros_animation_24: 5703831800925794565
+      Livros_animation_25: -7130822533495138168
+      Livros_animation_26: 2999045552634621629
+      Livros_animation_27: -5976902528530970868
+      Livros_animation_28: 4105158566508739507
+      Livros_animation_29: 7063139191811792233
+      Livros_animation_3: -8306395428607026660
+      Livros_animation_30: 6118714246671338056
+      Livros_animation_31: 4373398143740586843
+      Livros_animation_32: 1371863713207958660
+      Livros_animation_33: 4778369808405793428
+      Livros_animation_34: -8277538778419879339
+      Livros_animation_35: 8613905035584238435
+      Livros_animation_36: -5564232531750161769
+      Livros_animation_37: -6421905944854321146
+      Livros_animation_38: -4932406046675909504
+      Livros_animation_39: -3700555851032860876
+      Livros_animation_4: 8533216792208158830
+      Livros_animation_40: 8985767381253252658
+      Livros_animation_41: 4187111294858124394
+      Livros_animation_42: 1979317595015054261
+      Livros_animation_43: 2219974561381201366
+      Livros_animation_44: -6257116007528958013
+      Livros_animation_45: 1562856454364825882
+      Livros_animation_46: -8845409895551631673
+      Livros_animation_47: 9146965264681161164
+      Livros_animation_48: -1862571523364078747
+      Livros_animation_49: -50388385566497551
+      Livros_animation_5: -5827707474601030727
+      Livros_animation_50: 2208472305847067777
+      Livros_animation_51: 2676333339930323015
+      Livros_animation_52: 24697459246945905
+      Livros_animation_53: 7557335494229494942
+      Livros_animation_6: 2525957614094352775
+      Livros_animation_7: 3235464013489722092
+      Livros_animation_8: 8170752461691072737
+      Livros_animation_9: 8246620600353226555
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

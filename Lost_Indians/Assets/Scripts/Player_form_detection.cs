@@ -15,7 +15,13 @@ public class Player_form_detection : MonoBehaviour
     {
         if (player_Plataform.plataform == true) 
         {
-
+            movi_Plataform.enabled = true;
+            moviTopDown.enabled = false;
+        }
+        if (player_TopDown.topDown == true) 
+        {
+            movi_Plataform.enabled = false;
+            moviTopDown.enabled = true;
         }
 
     }
