@@ -30,11 +30,20 @@ public class QuestManager : MonoBehaviour
         questPanel.SetActive(true);
 
         questTitleText.text = questName;
-        questDescriptionText.text = "Colete o item perdido e retorne ao Guardião!";
+        questDescriptionText.text = "Você viu aquilo?";
     }
 
     public bool IsQuestActive()
     {
         return questActive;
+    }
+
+    public void CompleteQuest()
+    {
+        questActive = false;
+        questPanel.SetActive(false);
+
+        questTitleText.text = questName;
+        questDescriptionText.text = "O que sera que era?";
     }
 }

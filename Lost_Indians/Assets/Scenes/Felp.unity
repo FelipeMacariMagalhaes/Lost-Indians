@@ -182,9 +182,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1161047925}
+      - m_Target: {fileID: 6755647395570483012}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: AcceptQuest
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1477,17 +1477,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159441533}
   m_CullTransparentMesh: 1
---- !u!114 &1161047925 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7067417403193233276, guid: d888d9f128203a741ba99b7a559db8a7, type: 3}
-  m_PrefabInstance: {fileID: 6755647395570483011}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1995cf4eb10b4458fb1bd21ea876b6c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1262921358 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3163040901393652116, guid: 8b0392a3401e7d148b8111bb785fd30d, type: 3}
@@ -2657,6 +2646,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d888d9f128203a741ba99b7a559db8a7, type: 3}
+--- !u!1 &6755647395570483012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4894599177030913212, guid: d888d9f128203a741ba99b7a559db8a7, type: 3}
+  m_PrefabInstance: {fileID: 6755647395570483011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8679293745398853580
 PrefabInstance:
   m_ObjectHideFlags: 0
