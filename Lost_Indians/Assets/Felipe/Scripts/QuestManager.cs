@@ -43,7 +43,6 @@ public class QuestManager : MonoBehaviour
         questActive = false;
         questPanel.SetActive(false);
 
-        questTitleText.text = questName;
         questDescriptionText.text = "O que sera que era?";
     }
 }
