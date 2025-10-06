@@ -1,12 +1,15 @@
 using UnityEngine;
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
 
+    public GameObject questPanel;
+    public TextMeshProUGUI questTitleText;
+    public TextMeshProUGUI questDescriptionText;
+
     private bool questActive = false;
-    private bool questCompleted = false;
-    private string currentQuest;
 
     void Awake()
     {
@@ -16,36 +19,22 @@ public class QuestManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void StartQuest(string questName)
+    void Start()
     {
-        currentQuest = questName;
-        questActive = true;
-        questCompleted = false;
-        QuestUI.instance.ShowQuest(questName);
+        questPanel.SetActive(false);
     }
 
-    public void CompleteQuest()
+    public void StartQuest(string questName)
     {
-        if (questActive)
-        {
-            questActive = false;
-            questCompleted = true;
-            QuestUI.instance.HideQuest();
-        }
+        questActive = true;
+        questPanel.SetActive(true);
+
+        questTitleText.text = questName;
+        questDescriptionText.text = "Colete o item perdido e retorne ao Guardião!";
     }
 
     public bool IsQuestActive()
     {
         return questActive;
-    }
-
-    public bool IsQuestCompleted()
-    {
-        return questCompleted;
-    }
-
-    public string GetCurrentQuest()
-    {
-        return currentQuest;
     }
 }
