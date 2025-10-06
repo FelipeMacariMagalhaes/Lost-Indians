@@ -22703,7 +22703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1506182643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46993,8 +46993,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1758207810
-CircleCollider2D:
+--- !u!68 &1758207810
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -47027,8 +47027,28 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.41362286, y: -0.2670169}
-  m_Radius: 6.240712
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.15978682, y: 6.8721566}
+  - {x: -7.2934003, y: 3.1412292}
+  - {x: -7.1286244, y: 0.86981356}
+  - {x: -5.8588667, y: 0.53286976}
+  - {x: -5.785283, y: -5.404811}
+  - {x: -3.68229, y: -5.097715}
+  - {x: -2.2381554, y: -4.985409}
+  - {x: -1.6858771, y: -5.142836}
+  - {x: 0.016058847, y: -4.9934907}
+  - {x: 2.2279487, y: -5.155257}
+  - {x: 5.5772, y: -5.0569944}
+  - {x: 6.005962, y: 0.74403715}
+  - {x: 6.9643884, y: 1.1091375}
+  - {x: 6.7335367, y: 3.3765376}
+  - {x: -0.07338272, y: 6.8316727}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1001 &1766857941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48372,7 +48392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1865260291029102447, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5348022132761013087, guid: eaa519a0f8db31449a0c2c12c08f5b72, type: 3}
       propertyPath: m_LocalScale.x
@@ -48616,6 +48636,7 @@ GameObject:
   - component: {fileID: 1989786748}
   - component: {fileID: 1989786747}
   - component: {fileID: 1989786750}
+  - component: {fileID: 1989786751}
   m_Layer: 0
   m_Name: MiragemDarcy
   m_TagString: Untagged
@@ -48744,6 +48765,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.50000006, y: 1.25}
   m_Direction: 0
+--- !u!114 &1989786751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989786746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d643a8e18379dc24cbe37a86e9e7c48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceForce: 300
+  deathDuration: 2
 --- !u!1 &2015209323
 GameObject:
   m_ObjectHideFlags: 0
