@@ -28,9 +28,8 @@ public class QuestManager : MonoBehaviour
     {
         questActive = true;
         questPanel.SetActive(true);
-
         questTitleText.text = questName;
-        questDescriptionText.text = "Você viu aquilo?";
+        questDescriptionText.text = "aaa";
     }
 
     public bool IsQuestActive()
@@ -42,7 +41,13 @@ public class QuestManager : MonoBehaviour
     {
         questActive = false;
         questPanel.SetActive(false);
+    }
 
-        questDescriptionText.text = "O que sera que era?";
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            questPanel.SetActive(!questPanel.activeSelf);
+        }
     }
 }

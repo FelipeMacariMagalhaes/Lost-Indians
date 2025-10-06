@@ -50,7 +50,7 @@ public class DialogueManager : MonoBehaviour
         if (nameText != null)
             nameText.text = npcName;
 
-        // Esconde botão no início
+        // Esconde botão no inicio
         if (acceptQuestButton != null)
             acceptQuestButton.gameObject.SetActive(false);
 
@@ -104,7 +104,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // 🔹 Botão de aceitar missão
+    // Botão de aceitar missão
     public void AcceptQuest()
     {
         // Inicia a missão se ainda não estiver ativa
