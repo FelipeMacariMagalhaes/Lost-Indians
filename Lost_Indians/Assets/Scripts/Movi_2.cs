@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-public class PlayerMovement2D : MonoBehaviour
+public class Movi_2 : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
