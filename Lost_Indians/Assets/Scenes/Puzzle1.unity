@@ -4622,7 +4622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &119056486
 Transform:
   m_ObjectHideFlags: 0
@@ -7644,6 +7644,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -6555215267732728189, guid: c97ee2fc4cf5938408c82accf0fe0117, type: 2}
     value: {fileID: 119056488}
+  - key: {fileID: -8727021165576215012, guid: c97ee2fc4cf5938408c82accf0fe0117, type: 2}
+    value: {fileID: 1848876691}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &247238208
@@ -62042,7 +62044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1848876692
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -62127,6 +62129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectMessage: Livro coletado!
   Duration: 2
+  cutsceneDirector: {fileID: 247238207}
 --- !u!61 &1848876695
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62157,7 +62160,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
