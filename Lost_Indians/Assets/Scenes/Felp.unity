@@ -2528,6 +2528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pixil-frame-0 (1)_0
       objectReference: {fileID: 0}
+    - target: {fileID: 4671958789182408991, guid: 8b0392a3401e7d148b8111bb785fd30d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4948900267341328096, guid: 8b0392a3401e7d148b8111bb785fd30d, type: 3}
       propertyPath: m_IsActive
       value: 1

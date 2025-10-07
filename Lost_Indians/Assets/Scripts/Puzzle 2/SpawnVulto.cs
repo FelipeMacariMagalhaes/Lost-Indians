@@ -1,8 +1,10 @@
 using UnityEngine;
+using System.Collections;
 
 public class SpawnVulto : MonoBehaviour
 {
-     public float fadeSpeed = 2f;
+    public float fadeSpeed = 2f;
+    public float bounceForce = 300f;
     private SpriteRenderer sr;
     private bool fadingOut = false;
 
@@ -31,8 +33,24 @@ public class SpawnVulto : MonoBehaviour
         if (collision.CompareTag("Player") && !fadingOut)
         {
             fadingOut = true;
+            StartCoroutine(DeathBoing());
             CreateMagicParticles();
         }
+    }
+
+    private IEnumerator DeathBoing()
+    {
+        // --- Squash & Stretch ---
+        transform.localScale = new Vector3(1.2f, 0.8f, 1f);
+        yield return new WaitForSeconds(0.1f);
+        transform.localScale = new Vector3(0.8f, 1.2f, 1f);
+        yield return new WaitForSeconds(0.1f);
+
+        // --- Efeito físico de "boing" ---
+        Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
+        rb.gravityScale = 1f;
+        rb.AddForce(Vector2.up * bounceForce);
+        rb.AddTorque(400f);
     }
 
     private void CreateMagicParticles()
@@ -54,19 +72,27 @@ public class SpawnVulto : MonoBehaviour
 
         var emission = ps.emission;
         emission.rateOverTime = 0;
-        emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0f, 100, 150) }); // mais partículas
+        emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(0f, 100, 150) });
 
         var shape = ps.shape;
         shape.shapeType = ParticleSystemShapeType.Sphere;
         shape.radius = 0.15f;
+
         var colorOverLifetime = ps.colorOverLifetime;
         colorOverLifetime.enabled = true;
         Gradient grad = new Gradient();
         grad.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(new Color(0.8f, 0.5f, 1f), 0f), new GradientColorKey(new Color(0.68f, 0.9f, 1f), 1f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(1f, 0f), new GradientAlphaKey(0f, 1f) }
+            new GradientColorKey[] {
+                new GradientColorKey(new Color(0.8f, 0.5f, 1f), 0f),
+                new GradientColorKey(new Color(0.68f, 0.9f, 1f), 1f)
+            },
+            new GradientAlphaKey[] {
+                new GradientAlphaKey(1f, 0f),
+                new GradientAlphaKey(0f, 1f)
+            }
         );
         colorOverLifetime.color = grad;
+
         var sizeOverLifetime = ps.sizeOverLifetime;
         sizeOverLifetime.enabled = true;
         AnimationCurve curve = new AnimationCurve();
