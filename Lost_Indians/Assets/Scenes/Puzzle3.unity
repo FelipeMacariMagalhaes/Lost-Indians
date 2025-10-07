@@ -210,10 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae42d875fa995443b85bfaf4e1e24ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlataformObject: {fileID: 0}
   plataform: 0
   player_TopDown: {fileID: 1840724991}
-  moviTopDown: {fileID: 2038042851}
-  movi_Plataform: {fileID: 2038042852}
 --- !u!1 &105373392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,9 +1207,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_Plataform: {fileID: 18022755}
+  TopDownObject: {fileID: 0}
+  topDown: 0
   moviTopDown: {fileID: 2038042851}
   movi_Plataform: {fileID: 2038042852}
-  topDown: 1
 --- !u!61 &1840724992
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038042848}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3f1d98265392b9439fb5f837f54c424, type: 3}
   m_Name: 
