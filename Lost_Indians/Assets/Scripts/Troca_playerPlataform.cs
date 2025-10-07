@@ -1,8 +1,7 @@
 using UnityEngine;
 
 public class Troca_playerPlataform : MonoBehaviour
-{
-    public GameObject PlataformObject;
+{   
     public bool plataform = false;
     public Troca_player_TopDown player_TopDown;
     void Start()
@@ -14,9 +13,9 @@ public class Troca_playerPlataform : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-      if(other.CompareTag("Player") && plataform == false)
+      if(other.CompareTag("Player") && !plataform)
         {
             player_TopDown.topDown = false;
             plataform = true;           

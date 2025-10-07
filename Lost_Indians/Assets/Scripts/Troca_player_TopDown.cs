@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class Troca_player_TopDown : MonoBehaviour
 {
-    public Troca_playerPlataform player_Plataform;
-    public GameObject TopDownObject;
+    public Troca_playerPlataform player_Plataform;  
     public bool topDown = true;
     public MoveTopDown moviTopDown;
     public Movi_2 movi_Plataform;
@@ -20,7 +19,7 @@ public class Troca_player_TopDown : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag ("Player") && topDown == false)
+        if(other.CompareTag ("Player") && !topDown)
         {
             player_Plataform.plataform = false;
             topDown = true;            
@@ -30,8 +29,6 @@ public class Troca_player_TopDown : MonoBehaviour
 
     public void Update_Player()
     {
-        TopDownObject.SetActive(topDown);
-        player_Plataform.PlataformObject.SetActive(player_Plataform.plataform);
         movi_Plataform.enabled = player_Plataform.plataform;
         moviTopDown.enabled = topDown;
     }
