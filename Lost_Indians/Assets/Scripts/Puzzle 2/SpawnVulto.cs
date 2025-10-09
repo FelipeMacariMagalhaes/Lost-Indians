@@ -1,95 +1,149 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class SpawnVulto : MonoBehaviour
 {
-    [Header("Boing Settings")]
-    public float bounceForce = 400f;         // força do primeiro boing
-    public float bounceForceAfterHit = 200f; // força menor pro segundo pulo
+   [Header("Boing Settings")]
+    public float bounceForce = 400f;         
+    public float bounceForceAfterHit = 200f; 
     public float gravity = 1f;
     public float torque = 600f;
 
     [Header("Fade Settings")]
-    public float fadeSpeed = 2f;             // velocidade do fade
+    public float fadeSpeed = 2f;
+
+    [Header("Texto Sustos")]
+    public GameObject textoSusto; // Texto que aparece após desaparecer
+    public float textoDuracao = 2f; // tempo que o texto fica visível
+    public float textoFadeSpeed = 1f; // velocidade do fade do texto
 
     private SpriteRenderer sr;
-    private bool alreadyDead = false;
+    private bool alreadyCollided = false;
     private Rigidbody2D rb;
 
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        if (textoSusto != null)
+            textoSusto.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !alreadyDead)
+        if (!alreadyCollided)
         {
-            alreadyDead = true;
-            StartCoroutine(DeathSequence());
+            alreadyCollided = true;
+            StartCoroutine(CollisionEffect());
+            
         }
     }
 
-    private IEnumerator DeathSequence()
+    private IEnumerator CollisionEffect()
     {
-        // ✨ Cria partículas mágicas
+        // Criar partículas mágicas
         CreateMagicParticles();
 
-        // 🔸 Faz o boing animado (squash & stretch)
-        yield return StartCoroutine(BoingStretch(1.3f, 0.7f, 0.08f));
-        yield return StartCoroutine(BoingStretch(0.7f, 1.3f, 0.08f));
+        // Primeiro boing com easing
+        yield return StartCoroutine(BoingStretchEase(1.3f, 0.7f, 0.08f));
+        yield return StartCoroutine(BoingStretchEase(0.7f, 1.3f, 0.08f));
 
-        // 🔸 Adiciona física e aplica força + torque
+        // Física para efeito visual
         rb = gameObject.AddComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
         rb.AddForce(Vector2.up * bounceForce);
         rb.AddTorque(torque);
 
-        // Espera ele subir e cair um pouco
         yield return new WaitForSeconds(0.5f);
 
-        // 🔸 Segundo boing
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(Vector2.up * bounceForceAfterHit);
-        yield return StartCoroutine(BoingStretch(1.2f, 0.8f, 0.1f));
 
-        // Espera cair totalmente
+        // Segundo boing
+        yield return StartCoroutine(BoingStretchEase(1.2f, 0.8f, 0.1f));
+
         yield return new WaitForSeconds(0.8f);
 
-        // 🔸 Inicia o fade out
+        // Fade do vulto/miragem
         yield return StartCoroutine(FadeOutAndDestroy());
+
+        // Mostrar texto
+        if (textoSusto != null)
+        {
+            textoSusto.SetActive(true);
+            yield return StartCoroutine(FadeTextoEDepoisSumir(textoSusto, textoDuracao, textoFadeSpeed));
+        }
     }
 
-    private IEnumerator BoingStretch(float xScale, float yScale, float time)
+    private IEnumerator BoingStretchEase(float targetX, float targetY, float duration)
     {
-        transform.localScale = new Vector3(xScale, yScale, 1f);
-        yield return new WaitForSeconds(time);
-        transform.localScale = Vector3.one;
+        Vector3 startScale = transform.localScale;
+        Vector3 targetScale = new Vector3(targetX, targetY, 1f);
+
+        float time = 0f;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            t = t * t * (3f - 2f * t); // Ease In-Out
+
+            transform.localScale = Vector3.Lerp(startScale, targetScale, t);
+            yield return null;
+        }
+
+        // Voltar para escala normal
+        time = 0f;
+        startScale = transform.localScale;
+        targetScale = Vector3.one;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            t = t * t * (3f - 2f * t);
+
+            transform.localScale = Vector3.Lerp(startScale, targetScale, t);
+            yield return null;
+        }
     }
 
     private IEnumerator FadeOutAndDestroy()
     {
-        if (sr == null)
-            yield break;
+        if (sr == null) yield break;
 
         float alpha = sr.color.a;
 
         while (alpha > 0f)
         {
             alpha -= Time.deltaTime * fadeSpeed;
-
             Color c = sr.color;
             c.a = Mathf.Clamp01(alpha);
             sr.color = c;
-
             yield return null;
         }
 
-        // Espera um pouco pra dar tempo de ver o fade final
         yield return new WaitForSeconds(0.1f);
+        gameObject.SetActive(false); // ocultar vulto
+    }
 
-        // Destroi o inimigo no final
-        Destroy(gameObject);
+    private IEnumerator FadeTextoEDepoisSumir(GameObject texto, float duracao, float fadeSpeed)
+    {
+        TextMeshProUGUI tmp = texto.GetComponent<TextMeshProUGUI>();
+        if (tmp == null) yield break;
+
+        Color cor = tmp.color;
+        cor.a = 1f;
+        tmp.color = cor;
+
+        yield return new WaitForSeconds(duracao);
+
+        while (cor.a > 0f)
+        {
+            cor.a -= Time.deltaTime * fadeSpeed;
+            tmp.color = cor;
+            yield return null;
+        }
+
+        texto.SetActive(false);
     }
 
     private void CreateMagicParticles()
