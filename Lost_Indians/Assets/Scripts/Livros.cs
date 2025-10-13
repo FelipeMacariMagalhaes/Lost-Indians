@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.Playables;
-using UnityEngine.Timeline;
 
+using UnityEngine.Events;
 public class Livros : CountBooks
 {
-    public PlayableDirector cutsceneDirector;
+    public UnityEvent Flashbacks;
+    
     private void Start()
     {
         CollectMessage = "Você Coletou Um livro";
@@ -12,10 +12,7 @@ public class Livros : CountBooks
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            cutsceneDirector.Play();
-        }
+        Flashbacks.Invoke();
     }
 }
     
