@@ -1,8 +1,9 @@
 using UnityEngine;
-
+using System;
 using UnityEngine.Events;
 public class Livros : CountBooks
 {
+    public Transform Player;
     bool flashOn = false;
     public UnityEvent Flashbacks;
     public UnityEvent NonFlashBacks;
@@ -19,7 +20,8 @@ public class Livros : CountBooks
     private void OnTriggerEnter2D(Collider2D other)
     {
         Flashbacks.Invoke();
-        flashOn = true;      
+        flashOn = true;   
+        transform.localScale = new Vector2(20, 20);
     }
 }
     
