@@ -19,9 +19,12 @@ public class Livros : CountBooks
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Flashbacks.Invoke();
-        flashOn = true;   
-        transform.localScale = new Vector2(20, 20);
+        if (other.CompareTag("Player"))
+        {
+            Flashbacks.Invoke();
+            flashOn = true;
+            transform.localScale = new Vector2(13, 5);
+        }       
     }
 }
     
