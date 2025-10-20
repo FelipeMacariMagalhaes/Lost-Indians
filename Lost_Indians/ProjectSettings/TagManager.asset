@@ -41,6 +41,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background_cave
+    uniqueID: 538981607
+    locked: 0
+  - name: Fundo_cave
+    uniqueID: 1282594513
+    locked: 0
+  - name: Ground_cave
+    uniqueID: 689938977
+    locked: 0
   - name: Background
     uniqueID: 2202028611
     locked: 0
