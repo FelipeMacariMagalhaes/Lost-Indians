@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class Mudanca_camera : MonoBehaviour
-{
+{/*
     [Header("Limites da câmera")]
     public float maxDeslocamentoX = 3f;
     public float maxDeslocamentoY = 2f;
@@ -65,10 +65,5 @@ public class Mudanca_camera : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, alvo, Time.deltaTime * suavidade);
 
             if (Vector3.Distance(transform.position, alvo) < 0.01f)
-                cameraEmTransicao = false;
-        }
-    }
-}
-
-
-}
+               cameraEmTransicao = false;
+      */  }      
