@@ -36537,6 +36537,7 @@ Transform:
   - {fileID: 6126268275439159925}
   - {fileID: 8095346200713789647}
   - {fileID: 5929961325768845049}
+  - {fileID: 9001680317099813702}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6029759464191266746
@@ -42843,18 +42844,6 @@ MonoBehaviour:
   talk:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -54252,3 +54241,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &7147652600281936759
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 624979711803279695}
+    m_Modifications:
+    - target: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.9626865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747788597848300277, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      propertyPath: m_Name
+      value: Troca_flash1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+--- !u!4 &9001680317099813702 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2296260377688643633, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+  m_PrefabInstance: {fileID: 7147652600281936759}
+  m_PrefabAsset: {fileID: 0}

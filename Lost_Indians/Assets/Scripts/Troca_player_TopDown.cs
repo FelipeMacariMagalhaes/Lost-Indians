@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Troca_player_TopDown : MonoBehaviour
 {
+    public MonoBehaviour[] movementScripts;
     public Troca_playerPlataform player_Plataform;  
     public bool topDown = true;
     public MoveTopDown moviTopDown;
