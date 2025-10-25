@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &18022755 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2497305632844090441, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
-  m_PrefabInstance: {fileID: 483865083527452934}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae42d875fa995443b85bfaf4e1e24ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &43023197
 GameObject:
   m_ObjectHideFlags: 0
@@ -68275,6 +68264,25 @@ Transform:
   - {fileID: 953872690}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1071208077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7747788597848300277, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+  m_PrefabInstance: {fileID: 483865083527452934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1071208079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071208077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b8a14ccaa1445479a32044459f3dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Troca_player_TopDown
+  mode_Universal: {fileID: 2038042863}
+  modoParaAtivar: 1
 --- !u!1 &1071964958
 GameObject:
   m_ObjectHideFlags: 0
@@ -68373,15 +68381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bb38145df9da24fa81bb59c781f073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mode_universal
-  player_TopDown: {fileID: 0}
-  player_Plataform: {fileID: 0}
   moviTopDown: {fileID: 2038042851}
   movi_Plataform: {fileID: 2038042852}
-  plataform_Active:
-  - {fileID: 18022755}
-  - {fileID: 0}
-  topDown_Active:
-  - {fileID: 1840724991}
   modoAtivo: 0
 --- !u!1 &1165684358
 GameObject:
@@ -72031,6 +72032,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3093637860597052423, guid: 0f7f6c78408bfdb499ccdd763bdad4ef, type: 3}
   m_PrefabInstance: {fileID: 7654992044651326472}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2038042863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465361370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76bb38145df9da24fa81bb59c781f073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mode_universal
+  moviTopDown: {fileID: 2038042851}
+  movi_Plataform: {fileID: 2038042852}
+  modoAtivo: 0
 --- !u!1001 &483865083527452934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72082,7 +72098,7 @@ PrefabInstance:
     - target: {fileID: 2497305632844090441, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
       propertyPath: mode_Universal
       value: 
-      objectReference: {fileID: 1071964962}
+      objectReference: {fileID: 2038042863}
     - target: {fileID: 2497305632844090441, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
       propertyPath: player_TopDown
       value: 
@@ -72091,10 +72107,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Troca_plataform_script
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2497305632844090441, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7747788597848300277, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1071208079}
   m_SourcePrefab: {fileID: 100100000, guid: 45a162f41eec39945ac5a835ba127b67, type: 3}
 --- !u!1001 &6134328873545363760
 PrefabInstance:
@@ -72119,7 +72139,7 @@ PrefabInstance:
     - target: {fileID: 1896463594469111553, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
       propertyPath: player_Plataform
       value: 
-      objectReference: {fileID: 18022755}
+      objectReference: {fileID: 0}
     - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.9959202
@@ -72248,7 +72268,7 @@ PrefabInstance:
     - target: {fileID: 7593594271926368834, guid: 0f7f6c78408bfdb499ccdd763bdad4ef, type: 3}
       propertyPath: player_Plataform
       value: 
-      objectReference: {fileID: 18022755}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7593594271926368834, guid: 0f7f6c78408bfdb499ccdd763bdad4ef, type: 3}
     m_RemovedGameObjects: []
@@ -72257,6 +72277,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3939759196753710134, guid: 0f7f6c78408bfdb499ccdd763bdad4ef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2038042858}
+    - targetCorrespondingSourceObject: {fileID: 3939759196753710134, guid: 0f7f6c78408bfdb499ccdd763bdad4ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2038042863}
   m_SourcePrefab: {fileID: 100100000, guid: 0f7f6c78408bfdb499ccdd763bdad4ef, type: 3}
 --- !u!20 &7654992044651326473 stripped
 Camera:

@@ -2,13 +2,10 @@ using UnityEngine;
 
 public class Mode_universal : MonoBehaviour
 {
-    public Troca_player_TopDown player_TopDown;
-    public Troca_playerPlataform player_Plataform;
+   
     public MoveTopDown moviTopDown;
-    public Movi_2 movi_Plataform;
-    
-    public MonoBehaviour[] plataform_Active;
-    public MonoBehaviour[] topDown_Active;
+    public Movi_2 movi_Plataform;    
+   
 
     public int modoAtivo = 0;
 
