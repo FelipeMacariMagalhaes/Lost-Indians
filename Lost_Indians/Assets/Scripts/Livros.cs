@@ -4,7 +4,33 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 public class Livros : CountBooks
 {
+    public Mode_universal mode_Universal;
+
     public Transform Player;
+    bool flashOn = false;
+    public UnityEvent Flashbacks;
+    public UnityEvent NonFlashBacks;
+
+    void Start()
+    {
+        if (!flashOn)
+        {
+            NonFlashBacks.Invoke();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Palyer"))
+        {
+            mode_Universal.modoAtivo = 1;
+            mode_Universal.AtualizarMovimentacao();
+            Flashbacks.Invoke();
+            flashOn = true;
+            transform.localScale = new Vector2(13, 5);
+        }
+    }
+}
+    /*public Transform Player;
     bool flashOn = false;
     public UnityEvent Flashbacks;
     public UnityEvent NonFlashBacks;
@@ -34,25 +60,22 @@ public class Livros : CountBooks
         }       
     }    
 }
-
+*/
 /* using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Livros : CountBooks
 {
-    [Header("Referências")]
     public Transform Player;
 
-    [Header("Eventos de flashback")]
+   
     public UnityEvent Flashbacks;
     public UnityEvent NonFlashBacks;
 
-    [Header("Sistemas de movimentação")]
-    [Tooltip("Arraste aqui todos os scripts de movimentação (TopDown, Plataforma, etc).")]
+   
     public MonoBehaviour[] movementScripts;
-
-    [Header("Controle dos modos")]
+   
     public int modoAtivo = 0; // 0 = TopDown, 1 = Plataforma, etc.
 
     private bool flashOn = false;
