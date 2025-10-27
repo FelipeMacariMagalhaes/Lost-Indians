@@ -20,7 +20,7 @@ public class Livros : CountBooks
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Palyer"))
+        if (collision.CompareTag("Player"))
         {
             mode_Universal.modoAtivo = 1;
             mode_Universal.AtualizarMovimentacao();

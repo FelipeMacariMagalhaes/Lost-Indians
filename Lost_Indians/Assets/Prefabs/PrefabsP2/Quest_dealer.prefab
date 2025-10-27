@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 2894746989037567756}
   - component: {fileID: 6129834065445340409}
   m_Layer: 0
-  m_Name: pixil-frame-0 (1)_0
+  m_Name: Quest_dealer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

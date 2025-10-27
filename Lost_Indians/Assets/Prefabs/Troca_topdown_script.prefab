@@ -91,7 +91,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b8a14ccaa1445479a32044459f3dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_Plataform: {fileID: 0}
-  topDown: 0
-  moviTopDown: {fileID: 0}
-  movi_Plataform: {fileID: 0}
+  mode_Universal: {fileID: 0}
+  modoParaAtivar: 0

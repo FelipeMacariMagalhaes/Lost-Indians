@@ -17,8 +17,10 @@ public class Mode_universal : MonoBehaviour
     public void TrocarModo(int novoModo)
     {
         if (novoModo == modoAtivo) return; // evita trocas desnecessárias
-        modoAtivo = novoModo;
-        AtualizarMovimentacao();
+        {
+            modoAtivo = novoModo;
+            AtualizarMovimentacao();
+        }
     }
 
     public void AtualizarMovimentacao()

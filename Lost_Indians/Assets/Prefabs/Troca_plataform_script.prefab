@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2296260377688643633}
   - component: {fileID: 9027944008296470544}
-  - component: {fileID: 2497305632844090441}
+  - component: {fileID: 2723242310127132737}
   m_Layer: 0
   m_Name: Troca_plataform_script
   m_TagString: Untagged
@@ -79,7 +79,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2497305632844090441
+--- !u!114 &2723242310127132737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,8 +88,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7747788597848300277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae42d875fa995443b85bfaf4e1e24ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 87b8a14ccaa1445479a32044459f3dc8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  plataform: 0
-  player_TopDown: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::Troca_player_TopDown
+  mode_Universal: {fileID: 0}
+  modoParaAtivar: 1
