@@ -59,6 +59,12 @@ TagManager:
   - name: Ground
     uniqueID: 4169551573
     locked: 0
+  - name: Flash_background
+    uniqueID: 784968613
+    locked: 0
+  - name: Flash_ground
+    uniqueID: 1735661535
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
