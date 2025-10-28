@@ -25,7 +25,7 @@ public class Mode_universal : MonoBehaviour
 
     public void AtualizarMovimentacao()
     {
-        bool isTopDown = (modoAtivo == 0);
+        bool isTopDown = (modoAtivo == 0); // jogo de boleanas
         moviTopDown.enabled = isTopDown;
         movi_Plataform.enabled = !isTopDown;
         if(isTopDown == true)
@@ -36,36 +36,5 @@ public class Mode_universal : MonoBehaviour
         {
             Rigidbody2D.gravityScale = 1;
         }
-    }
-
-        /* public void AtualizarMovimentacao()
-         {
-             bool isTopDown = (modoAtivo == 0);
-
-             // Ativa um, desativa o outro
-             moviTopDown.enabled = isTopDown;
-             movi_Plataform.enabled = !isTopDown;
-         }
-
-         // Método auxiliar para alternar o modo diretamente
-         public void TrocarModo(int novoModo)
-         {
-             modoAtivo = novoModo;
-             AtualizarMovimentacao();
-         }*/
-
-        /*public void AtualizarMovimentacao()
-        {      
-                    if (modoAtivo == 0)
-                    {
-                        moviTopDown.enabled = true;
-                        movi_Plataform.enabled = false;
-                    }
-                    else
-                    {
-                        moviTopDown.enabled = false;
-                        movi_Plataform.enabled = true;
-                    }
-
-        }*/
+    }       
     }
