@@ -49,7 +49,7 @@ public class QuestManager : MonoBehaviour
 
     void Update()
     {
-        if (questUnlocked && Input.GetKeyDown(KeyCode.M))
+        if (questUnlocked && Input.GetKeyDown(KeyCode.Q))
         {
             questPanel.SetActive(!questPanel.activeSelf);
         }
