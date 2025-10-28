@@ -9,7 +9,7 @@ public class Exit_flashback : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             exit_flash.Invoke();
-
+            
         }
     }
 }
