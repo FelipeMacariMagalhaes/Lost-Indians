@@ -1,4 +1,4 @@
-using System;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -10,7 +10,8 @@ public class Livros : CountBooks
     bool flashOn = false;
     public UnityEvent Flashbacks;
     public UnityEvent NonFlashBacks;
-
+    public Transform Teleport_flashOut;    
+   
     void Start()
     {
         if (!flashOn)
@@ -24,6 +25,7 @@ public class Livros : CountBooks
         {
             mode_Universal.modoAtivo = 1;
             mode_Universal.AtualizarMovimentacao();
+            Player.transform.position = Teleport_flashOut.transform.position;
             Flashbacks.Invoke();
             flashOn = true;
             transform.localScale = new Vector2(13, 5);
