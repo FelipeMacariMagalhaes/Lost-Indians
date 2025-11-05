@@ -178,7 +178,22 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Creditos
 
-'
+    Diretor
+
+    Yuri Scheunemann
+
+
+    Programador
+
+    Felipe
+
+    Yuri
+    Scheunemann
+
+
+    Artista
+
+    Miguel'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -292,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -380.5, y: 525.6609}
+  m_AnchoredPosition: {x: -380.50003, y: 525.6609}
   m_SizeDelta: {x: -353.63568, y: -1079}
   m_Pivot: {x: 0, y: 0}
 --- !u!212 &257292698
