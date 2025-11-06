@@ -23,6 +23,7 @@ public class Game_Controller : MonoBehaviour
         {
             OnVictory.Invoke();
             foundObjects = 0;
+            UpdateFoundText();
         }
     }
     private void UpdateFoundText()
