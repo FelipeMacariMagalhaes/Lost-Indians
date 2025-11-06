@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class Game_Controller : MonoBehaviour
 {
     public int foundObjects;
-    public int objectsAmount = 8;
+    public int objectsAmount = 5;
     public TMP_Text foundObjectsTxt;
     public UnityEvent OnVictory;
 
