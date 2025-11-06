@@ -26753,7 +26753,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -51023,6 +51023,12 @@ PlayableDirector:
     value: {fileID: 1845788723}
   - key: {fileID: -4206317705390609789, guid: 68a3956478709224aabd279e7bc4588b, type: 2}
     value: {fileID: 304611953}
+  - key: {fileID: -2481533532773325128, guid: 68a3956478709224aabd279e7bc4588b, type: 2}
+    value: {fileID: 1295801478}
+  - key: {fileID: -577209896580163432, guid: 68a3956478709224aabd279e7bc4588b, type: 2}
+    value: {fileID: 1272843627}
+  - key: {fileID: 1367643679618969209, guid: 68a3956478709224aabd279e7bc4588b, type: 2}
+    value: {fileID: 711069234}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &711069232
@@ -51114,7 +51120,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -94457,7 +94463,7 @@ GameObject:
   - component: {fileID: 1295801479}
   - component: {fileID: 1295801478}
   m_Layer: 5
-  m_Name: Tempo_apos (1)
+  m_Name: Tempo_apos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
