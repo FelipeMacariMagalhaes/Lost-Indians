@@ -22,6 +22,7 @@ public class Game_Controller : MonoBehaviour
         if (foundObjects >= objectsAmount)
         {
             OnVictory.Invoke();
+            foundObjects = 0;
         }
     }
     private void UpdateFoundText()
