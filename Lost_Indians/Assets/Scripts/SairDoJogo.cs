@@ -2,12 +2,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 public class SairDoJogo : MonoBehaviour
-{[Header("Bot�es")]
+{
+    [Header("Bot�es")]
     public Button playButton;
     public Button quitButton;
-    public GameObject creditosPanel;
+    public Button closeButton;
 
+    public GameObject creditosPanel;
+    public UnityEvent Credits;
+    public UnityEvent close;
     [Header("Configura��es")]
     public string sceneToLoad = "GameScene";
 
@@ -52,14 +57,11 @@ public class SairDoJogo : MonoBehaviour
     }
     public void AbrirCreditos()
     {
-        if (creditosPanel != null)
-            creditosPanel.SetActive(true);
-    }
+        Credits.Invoke();
+    }   
 
-    // Fecha o painel
-    public void FecharCreditos()
+    public void CloseCreditos()
     {
-        if (creditosPanel != null)
-            creditosPanel.SetActive(false);
+        close.Invoke();
     }
 }

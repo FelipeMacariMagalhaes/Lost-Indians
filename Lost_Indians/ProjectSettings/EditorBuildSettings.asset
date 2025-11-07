@@ -12,12 +12,6 @@ EditorBuildSettings:
     path: "Assets/Scenes/\xC1rea_Inicial.unity"
     guid: 49797280d8c1db14f8d02456cbf0c80f
   - enabled: 1
-    path: Assets/Scenes/Puzzle1.unity
-    guid: 555c8d7755b6db74f92954b207795b46
-  - enabled: 1
-    path: Assets/Scenes/Puzzle2.unity
-    guid: 64668ad73ceb96647934ca7919e31734
-  - enabled: 1
     path: Assets/Scenes/Puzzle3.unity
     guid: 7e54b52f6ebe8f24fb913e3c9b058446
   m_configObjects:
