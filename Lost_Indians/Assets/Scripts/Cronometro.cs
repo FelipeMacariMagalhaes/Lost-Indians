@@ -12,7 +12,7 @@ public class Cronometro : MonoBehaviour
 
     public TextMeshProUGUI textoCronometro;
     public GameObject painelDerrota;
-    public Jogodaforca2000 Jogodaforca2000;
+    
     public GameObject cronometragem;
 
     public float tempoRestante = 10f;
@@ -23,10 +23,7 @@ public class Cronometro : MonoBehaviour
 
     void Start()
 
-    {
-        
-
-        Jogodaforca2000 = FindObjectOfType<Jogodaforca2000>();
+    {  
 
         
 
@@ -70,54 +67,18 @@ public class Cronometro : MonoBehaviour
             painelDerrota.SetActive (true);
             cronometragem.SetActive (false);
 
-            if (venceu)
-
-            {
-
-                MostrarVitoria();
-
-            }
-
-            else
-
-            {
-
+       
+           
                 MostrarDerrota();
 
-            }
+           
 
         }
 
     }
 
-    public void VencerJogo()
-
-    {
-
-        if (terminou)
-
-        {
-
-            venceu = true;
-
-            terminou = true;
-
-            MostrarVitoria();
-
-        }
-
-    }
-
-    public void MostrarVitoria()
-
-    {
-        cronometragem.SetActive(false);
-        painelDerrota.SetActive(false);
-        SceneManager.LoadScene("Recompensas");
-
-
-
-    }
+   
+    
 
     public void MostrarDerrota()
 
