@@ -53,8 +53,7 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         if (!dialoguePanel.activeSelf) return;
-
-        if (terminouDialogo) return;  
+        if (terminouDialogo) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -63,11 +62,11 @@ public class DialogueManager : MonoBehaviour
                 StopAllCoroutines();
                 dialogueText.text = falas[index];
                 escrevendo = false;
+                return;
             }
-            else
-            {
-                ProximaLinha();
-            }
+
+            // Senão, ir para próxima linha
+            ProximaLinha();
         }
     }
 
