@@ -3,48 +3,53 @@ using UnityEngine;
 public class NPCDialogueTrigger : MonoBehaviour
 {
     [Header("Interação")]
-    public GameObject pressEUI;   
-    public Vector3 offset = new Vector3(0, 1f, 0); 
+    public GameObject AperteE;   
+    public Vector3 ofset = new Vector3(0, 1f, 0); 
 
     [Header("Diálogo")]
-    public string[] dialogueLines;
+    public string[] LinhasDeDialogo;
     public string npcName = "NPC";
 
-    private bool playerInRange = false;
-    private Camera cam;
+    private bool PlayerAlcance = false;
+    private bool jaInteragiu = false;   
+    private Camera cm;
 
     void Start()
     {
-        cam = Camera.main;
+        cm = Camera.main;
 
-        if (pressEUI != null)
-            pressEUI.SetActive(false);
+        if (AperteE != null)
+            AperteE.SetActive(false);
     }
 
     void Update()
     {
-        if (playerInRange)
+        if (PlayerAlcance && !jaInteragiu)
         {
-            if (pressEUI != null)
+            if (AperteE != null)
             {
-                Vector3 screenPos = cam.WorldToScreenPoint(transform.position + offset);
-                pressEUI.transform.position = screenPos;
+                Vector3 screenPos = cm.WorldToScreenPoint(transform.position + ofset);
+                AperteE.transform.position = screenPos;
             }
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                DialogueManager.instance.StartDialogue(dialogueLines, npcName);
+                DialogueManager.instance.StartDialogue(LinhasDeDialogo, npcName);
+
+                jaInteragiu = true;        
+                if (AperteE != null)
+                    AperteE.SetActive(false);
             }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!jaInteragiu && other.CompareTag("Player"))
         {
-            playerInRange = true;
-            if (pressEUI != null)
-                pressEUI.SetActive(true);
+            PlayerAlcance = true;
+            if (AperteE != null)
+                AperteE.SetActive(true);
         }
     }
 
@@ -52,9 +57,10 @@ public class NPCDialogueTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = false;
-            if (pressEUI != null)
-                pressEUI.SetActive(false);
+            PlayerAlcance = false;
+
+            if (!jaInteragiu && AperteE != null)
+                AperteE.SetActive(false);
         }
     }
 }

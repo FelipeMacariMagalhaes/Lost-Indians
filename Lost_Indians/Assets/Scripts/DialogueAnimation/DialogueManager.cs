@@ -9,14 +9,15 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
-    public Button acceptQuestButton;
+    public Button BotaoQuest;
 
     [Header("Typing Settings")]
-    public float typingSpeed = 0.03f;
+    public float SegPorLetra = 0.03f;
 
     private string[] lines;
     private int index;
-    private bool isTyping;
+    private bool EstaEscrevendo;
+    private bool ignorarInputInicial = false;   
 
     public static DialogueManager instance;
 
@@ -32,10 +33,10 @@ public class DialogueManager : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
 
-        if (acceptQuestButton != null)
+        if (BotaoQuest != null)
         {
-            acceptQuestButton.gameObject.SetActive(false);
-            acceptQuestButton.onClick.AddListener(AcceptQuest);
+            BotaoQuest.gameObject.SetActive(false);
+            BotaoQuest.onClick.AddListener(AceitarQuest);
         }
     }
 
@@ -48,44 +49,55 @@ public class DialogueManager : MonoBehaviour
         if (nameText != null)
             nameText.text = npcName;
 
-        if (acceptQuestButton != null)
-            acceptQuestButton.gameObject.SetActive(false);
+        if (BotaoQuest != null)
+            BotaoQuest.gameObject.SetActive(false);
+
+        ignorarInputInicial = true;   
+        StartCoroutine(LiberarInput());
 
         StartCoroutine(TypeLine());
     }
 
+    IEnumerator LiberarInput()
+    {
+        yield return null;             
+        ignorarInputInicial = false;   
+    }
+
     void Update()
     {
+        if (ignorarInputInicial) return;  
+
         if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.Space))
         {
-            if (isTyping)
+            if (EstaEscrevendo)
             {
                 StopAllCoroutines();
                 dialogueText.text = lines[index];
-                isTyping = false;
+                EstaEscrevendo = false;
             }
             else
             {
-                NextLine();
+                ProximaLinha();
             }
         }
     }
 
     IEnumerator TypeLine()
     {
-        isTyping = true;
+        EstaEscrevendo = true;
         dialogueText.text = "";
 
         foreach (char c in lines[index])
         {
             dialogueText.text += c;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSeconds(SegPorLetra);
         }
 
-        isTyping = false;
+        EstaEscrevendo = false;
     }
 
-    void NextLine()
+    void ProximaLinha()
     {
         index++;
 
@@ -95,16 +107,16 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            if (acceptQuestButton != null)
-                acceptQuestButton.gameObject.SetActive(true);
+            if (BotaoQuest != null)
+                BotaoQuest.gameObject.SetActive(true);
         }
     }
 
-    void AcceptQuest()
+    void AceitarQuest()
     {
         QuestManager.instance.StartQuest("Missão do NPC");
 
         dialoguePanel.SetActive(false);
-        acceptQuestButton.gameObject.SetActive(false);
+        BotaoQuest.gameObject.SetActive(false);
     }
 }
