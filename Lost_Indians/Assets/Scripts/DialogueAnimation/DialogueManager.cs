@@ -5,76 +5,64 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    [Header("UI Elements")]
+    [Header("UI")]
     public GameObject dialoguePanel;
-    public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI nameText;
-    public Button BotaoQuest;
+    public TextMeshProUGUI dialogueText;
+    public Button botaoQuest;
 
-    [Header("Typing Settings")]
-    public float SegPorLetra = 0.03f;
+    [Header("Typing")]
+    public float segPorLetra = 0.03f;
 
-    private string[] lines;
-    private int index;
-    private bool EstaEscrevendo;
-    private bool ignorarInputInicial = false;   
+    private string[] falas;
+    private int index = 0;
+
+    private bool escrevendo = false;
+    private bool terminouDialogo = false;
 
     public static DialogueManager instance;
 
-    void Awake()
+    private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else
-            Destroy(gameObject);
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
     }
 
     void Start()
     {
         dialoguePanel.SetActive(false);
-
-        if (BotaoQuest != null)
-        {
-            BotaoQuest.gameObject.SetActive(false);
-            BotaoQuest.onClick.AddListener(AceitarQuest);
-        }
+        botaoQuest.gameObject.SetActive(false);
+        botaoQuest.onClick.AddListener(AceitarQuest);
     }
 
-    public void StartDialogue(string[] dialogueLines, string npcName = "")
+    public void StartDialogue(string[] linhas, string nomeNPC = "")
     {
-        lines = dialogueLines;
+        falas = linhas;
         index = 0;
+        terminouDialogo = false;
+
         dialoguePanel.SetActive(true);
+        botaoQuest.gameObject.SetActive(false);
 
-        if (nameText != null)
-            nameText.text = npcName;
-
-        if (BotaoQuest != null)
-            BotaoQuest.gameObject.SetActive(false);
-
-        ignorarInputInicial = true;   
-        StartCoroutine(LiberarInput());
+        nameText.text = nomeNPC;
+        dialogueText.text = "";
 
         StartCoroutine(TypeLine());
     }
 
-    IEnumerator LiberarInput()
-    {
-        yield return null;             
-        ignorarInputInicial = false;   
-    }
-
     void Update()
     {
-        if (ignorarInputInicial) return;  
+        if (!dialoguePanel.activeSelf) return;
 
-        if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.Space))
+        if (terminouDialogo) return;  
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (EstaEscrevendo)
+            if (escrevendo)
             {
                 StopAllCoroutines();
-                dialogueText.text = lines[index];
-                EstaEscrevendo = false;
+                dialogueText.text = falas[index];
+                escrevendo = false;
             }
             else
             {
@@ -85,31 +73,36 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        EstaEscrevendo = true;
+        escrevendo = true;
         dialogueText.text = "";
 
-        foreach (char c in lines[index])
+        foreach (char c in falas[index])
         {
             dialogueText.text += c;
-            yield return new WaitForSeconds(SegPorLetra);
+            yield return new WaitForSeconds(segPorLetra);
         }
 
-        EstaEscrevendo = false;
+        escrevendo = false;
     }
 
     void ProximaLinha()
     {
         index++;
 
-        if (index < lines.Length)
+        if (index < falas.Length)
         {
             StartCoroutine(TypeLine());
         }
         else
         {
-            if (BotaoQuest != null)
-                BotaoQuest.gameObject.SetActive(true);
+            FimDoDialogo();
         }
+    }
+
+    void FimDoDialogo()
+    {
+        terminouDialogo = true;
+        botaoQuest.gameObject.SetActive(true);
     }
 
     void AceitarQuest()
@@ -117,6 +110,6 @@ public class DialogueManager : MonoBehaviour
         QuestManager.instance.StartQuest("Missão do NPC");
 
         dialoguePanel.SetActive(false);
-        BotaoQuest.gameObject.SetActive(false);
+        botaoQuest.gameObject.SetActive(false);
     }
 }
