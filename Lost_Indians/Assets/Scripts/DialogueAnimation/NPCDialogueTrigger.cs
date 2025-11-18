@@ -26,11 +26,7 @@ public class NPCDialogueTrigger : MonoBehaviour
     {
         if (PlayerAlcance && !jaInteragiu)
         {
-            if (AperteE != null)
-            {
-                Vector3 screenPos = cm.WorldToScreenPoint(transform.position + ofset);
-                AperteE.transform.position = screenPos;
-            }
+          
 
             if (Input.GetKeyDown(KeyCode.E))
             {
