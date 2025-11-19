@@ -86,6 +86,7 @@ public class DialogueManager : MonoBehaviour
 
     void ProximaLinha()
     {
+        botaoQuest.gameObject.SetActive(false);
         index++;
 
         if (index < falas.Length)
