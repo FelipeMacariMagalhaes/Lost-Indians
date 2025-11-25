@@ -7,7 +7,7 @@ public class Movi_2 : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     private Rigidbody2D rb;
-    private Animator anim;
+    private Animator animator;
     private bool isGrounded;
 
     public Transform groundCheck;
@@ -19,33 +19,43 @@ public class Movi_2 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
-    {       
+    {
+        moveInput = Input.GetAxis("Horizontal");
         Move();
-        Jump();       
+        Jump();
+        //Animate();
     }
 
     void Move()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(h * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-       
+        // Flip sprite na direção do movimento
+        if (moveInput > 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (moveInput < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
     }
 
     void Jump()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        float v = Input.GetAxisRaw("Jump");
+
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.linearVelocity = new Vector2(v, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
-    
+
+    //void Animate()
+    // {
+    //   animator.SetFloat("Speed", Mathf.Abs(moveInput));
+    //  animator.SetBool("IsJumping", !isGrounded);
+    // }
 
     void OnDrawGizmosSelected()
     {
