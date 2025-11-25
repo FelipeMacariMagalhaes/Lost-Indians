@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class Mode_universal : MonoBehaviour
 {
+
+    private Animator anim;
    
     public MoveTopDown moviTopDown;
     public Movi_2 movi_Plataform;    
     public Rigidbody2D Rigidbody2D;
-    public bool Plataform;
+    public bool plataform = false;
     public int modoAtivo = 0;
 
     private void Start()
@@ -14,9 +16,14 @@ public class Mode_universal : MonoBehaviour
         AtualizarMovimentacao();
     }
 
+    void Update()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     public void TrocarModo(int novoModo)
     {
-        if (novoModo == modoAtivo) return; // evita trocas desnecessárias
+        if (novoModo == modoAtivo) return; // evita trocas desnecessï¿½rias
         {
             modoAtivo = novoModo;
             AtualizarMovimentacao();           
@@ -31,14 +38,13 @@ public class Mode_universal : MonoBehaviour
         if(isTopDown == true)
         {
             Rigidbody2D.gravityScale = 0;
+            plataform = false;
         }
         else 
         {
             Rigidbody2D.gravityScale = 1;
+            plataform = true;
         }
-        if (movi_Plataform != null)
-        {
-            Plataform = true;
-        }
+       
     }       
     }
