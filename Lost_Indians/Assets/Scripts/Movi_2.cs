@@ -23,11 +23,11 @@ public class Movi_2 : MonoBehaviour
     public float groundCheckRadius = 0.2f;
 
     public LayerMask groundLayer;
- 
-    private float moveInput;
+ bool IsJumping = false;
+    
 
     bool IsJuping = false;
-
+   
     public Mode_universal modes;
  
     void Start()
@@ -44,8 +44,6 @@ public class Movi_2 : MonoBehaviour
 
     {
 
-        moveInput = Input.GetAxis("Horizontal");
-
         Move();
 
         Jump();       
@@ -56,34 +54,37 @@ public class Movi_2 : MonoBehaviour
 
     {
 
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
- 
-        // Flip sprite na direção do movimento
+        float h = Input.GetAxisRaw("Horizontal");
 
-        if (moveInput > 0)
+        rb.linearVelocity = new Vector2(h * moveSpeed, rb.linearVelocity.y);
+        
 
+        if (h > 0)
+        {
             transform.localScale = new Vector3(1, 1, 1);
+            anim.SetFloat("Horizontal", h);
+        }           
 
-        else if (moveInput < 0)
-
+        else if (h < 0)
+        {
             transform.localScale = new Vector3(-1, 1, 1);
+            anim.SetFloat("Horizontal", h);
+        }
+       
 
     }
- 
-   void Jump()
+
+    void Jump()
 {
     isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
     if (Input.GetButtonDown("Jump") && isGrounded)
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-
-        if (modes.plataform)
-        {
-            anim.Play("Jump");
-        }
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);       
     }
 }
+
+
 
  
     void OnDrawGizmosSelected()

@@ -14,11 +14,12 @@ public class Mode_universal : MonoBehaviour
     private void Start()
     {
         AtualizarMovimentacao();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        anim = GetComponent<Animator>();
+       
     }
 
     public void TrocarModo(int novoModo)
@@ -45,6 +46,8 @@ public class Mode_universal : MonoBehaviour
             Rigidbody2D.gravityScale = 1;
             plataform = true;
         }
-       
+        anim.SetBool("Plataform", plataform);
+
+
     }       
     }
