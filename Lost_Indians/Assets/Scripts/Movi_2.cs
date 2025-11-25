@@ -7,7 +7,7 @@ public class Movi_2 : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     private Rigidbody2D rb;
-    private Animator animator;
+    private Animator anim;
     private bool isGrounded;
 
     public Transform groundCheck;
@@ -19,14 +19,13 @@ public class Movi_2 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {       
         Move();
-        Jump();
-        //Animate();
+        Jump();       
     }
 
     void Move()
@@ -34,11 +33,7 @@ public class Movi_2 : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(h * moveSpeed, rb.linearVelocity.y);
 
-        // Flip sprite na direção do movimento
-        if (moveInput > 0)
-            transform.localScale = new Vector3(1, 1, 1);
-        else if (moveInput < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
+       
     }
 
     void Jump()
@@ -50,12 +45,7 @@ public class Movi_2 : MonoBehaviour
             rb.linearVelocity = new Vector2(v, jumpForce);
         }
     }
-
-    //void Animate()
-    // {
-    //   animator.SetFloat("Speed", Mathf.Abs(moveInput));
-    //  animator.SetBool("IsJumping", !isGrounded);
-    // }
+    
 
     void OnDrawGizmosSelected()
     {
