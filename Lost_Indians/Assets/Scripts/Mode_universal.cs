@@ -6,7 +6,7 @@ public class Mode_universal : MonoBehaviour
     public MoveTopDown moviTopDown;
     public Movi_2 movi_Plataform;    
     public Rigidbody2D Rigidbody2D;
-
+    public bool Plataform;
     public int modoAtivo = 0;
 
     private void Start()
@@ -19,7 +19,7 @@ public class Mode_universal : MonoBehaviour
         if (novoModo == modoAtivo) return; // evita trocas desnecessárias
         {
             modoAtivo = novoModo;
-            AtualizarMovimentacao();
+            AtualizarMovimentacao();           
         }
     }
 
@@ -35,6 +35,10 @@ public class Mode_universal : MonoBehaviour
         else 
         {
             Rigidbody2D.gravityScale = 1;
+        }
+        if (movi_Plataform != null)
+        {
+            Plataform = true;
         }
     }       
     }

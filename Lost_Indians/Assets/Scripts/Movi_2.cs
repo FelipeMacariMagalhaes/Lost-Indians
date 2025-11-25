@@ -7,7 +7,7 @@ public class Movi_2 : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     private Rigidbody2D rb;
-    private Animator animator;
+    private Animator anim;
     private bool isGrounded;
 
     public Transform groundCheck;
@@ -19,15 +19,20 @@ public class Movi_2 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        float h = Input.GetAxisRaw("Jump");
+        float v = Input.GetAxisRaw("Vertical");
+        transform.Translate(new Vector3(h, v, 0) * moveSpeed * Time.deltaTime);
+
+        anim.SetFloat("Horizontal", h);
+        anim.SetFloat("Vertical", v);
         moveInput = Input.GetAxis("Horizontal");
         Move();
-        Jump();
-        //Animate();
+        Jump();        
     }
 
     void Move()
