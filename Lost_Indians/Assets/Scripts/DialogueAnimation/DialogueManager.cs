@@ -11,18 +11,10 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Button botaoQuest;
 
-    [Header("Painéis de Quest")]
-    public GameObject questPainel1;
-    public GameObject questPainel2;
-    public GameObject questPainel3;
-
-    public TextMeshProUGUI questTitle1;
-    public TextMeshProUGUI questTitle2;
-    public TextMeshProUGUI questTitle3;
-
-    public TextMeshProUGUI questDesc1;
-    public TextMeshProUGUI questDesc2;
-    public TextMeshProUGUI questDesc3;
+    [Header("Painel da Quest")]
+    public GameObject questPainel;
+    public TextMeshProUGUI questTitle;
+    public TextMeshProUGUI questDesc;
 
     [Header("Typing")]
     public float segPorLetra = 0.03f;
@@ -35,7 +27,6 @@ public class DialogueManager : MonoBehaviour
 
     private string questNameAtual = "";
     private string descAtual = "";
-    private int painelIDAtual = 1;
 
     public static DialogueManager instance;
 
@@ -55,7 +46,8 @@ public class DialogueManager : MonoBehaviour
         botaoQuest.onClick.AddListener(AceitarQuest);
     }
 
-    public void StartDialogue(string[] linhas, string nomeNPC, string questName, int painelID, string descQuest)
+    // Inicia o diálogo e passa as falas
+    public void StartDialogue(string[] linhas, string nomeNPC, string questName, string descQuest)
     {
         StopAllCoroutines(); // Para qualquer digitação antiga
 
@@ -67,13 +59,12 @@ public class DialogueManager : MonoBehaviour
         if (!dialoguePanel.activeSelf)
             dialoguePanel.SetActive(true);
 
-        botaoQuest.gameObject.SetActive(false);
+        botaoQuest.gameObject.SetActive(false);  // Esconde o botão inicialmente
 
         nameText.text = nomeNPC;
         dialogueText.text = "";
 
         questNameAtual = questName;
-        painelIDAtual = painelID;
         descAtual = descQuest;
 
         StartCoroutine(TypeLine());
@@ -84,6 +75,7 @@ public class DialogueManager : MonoBehaviour
         if (!dialoguePanel.activeSelf) return;
         if (terminouDialogo) return;
 
+        // O jogador avança o diálogo ao pressionar o espaço
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (escrevendo)
@@ -98,6 +90,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Efeito de digitação
     IEnumerator TypeLine()
     {
         escrevendo = true;
@@ -112,9 +105,10 @@ public class DialogueManager : MonoBehaviour
         escrevendo = false;
     }
 
+    // Avança para a próxima linha do diálogo
     void ProximaLinha()
     {
-        botaoQuest.gameObject.SetActive(false);
+        botaoQuest.gameObject.SetActive(false);  // Esconde o botão enquanto o diálogo continua
         index++;
 
         if (index < falas.Length)
@@ -127,36 +121,25 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Finaliza o diálogo e mostra o botão de aceitar a quest
     void FimDoDialogo()
     {
         terminouDialogo = true;
-        botaoQuest.gameObject.SetActive(true);
+        botaoQuest.gameObject.SetActive(true);  // Mostra o botão de quest ao final do diálogo
     }
 
+    // Aceitar a quest ao clicar no botão
     void AceitarQuest()
     {
         QuestManager.instance.StartQuest(questNameAtual);
 
+        // Fecha o painel de diálogo e o botão de quest
         dialoguePanel.SetActive(false);
         botaoQuest.gameObject.SetActive(false);
 
-        if (painelIDAtual == 1)
-        {
-            questPainel1.SetActive(true);
-            questTitle1.text = questNameAtual;
-            questDesc1.text = descAtual;
-        }
-        else if (painelIDAtual == 2)
-        {
-            questPainel2.SetActive(true);
-            questTitle2.text = questNameAtual;
-            questDesc2.text = descAtual;
-        }
-        else if (painelIDAtual == 3)
-        {
-            questPainel3.SetActive(true);
-            questTitle3.text = questNameAtual;
-            questDesc3.text = descAtual;
-        }
+        // Atualiza o painel de quest
+        questPainel.SetActive(true);
+        questTitle.text = questNameAtual;
+        questDesc.text = descAtual;
     }
 }

@@ -22,22 +22,7 @@ public class NPCDialogueTrigger3 : MonoBehaviour
             AperteE.SetActive(false);
     }
 
-    void Update()
-    {
-        if (PlayerAlcance && Input.GetKeyDown(KeyCode.E))
-        {
-            DialogueManager.instance.StartDialogue(
-                LinhasDeDialogo,
-                npcName,
-                questName,
-                painelID,
-                questDescription
-            );
 
-            if (AperteE != null)
-                AperteE.SetActive(false);
-        }
-    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
