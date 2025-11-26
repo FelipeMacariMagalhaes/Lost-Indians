@@ -39,6 +39,7 @@ public class Mode_universal : MonoBehaviour
         if(isTopDown == true)
         {
             Rigidbody2D.gravityScale = 0;
+            Rigidbody2D.linearVelocity = Vector2.zero;
             plataform = false;
         }
         else 
