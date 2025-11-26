@@ -697,9 +697,9 @@ GameObject:
   - component: {fileID: 1110920052}
   - component: {fileID: 1110920051}
   - component: {fileID: 1110920054}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: "Ch\xE3o"
-  m_TagString: ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
