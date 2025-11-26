@@ -68,6 +68,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Arbusto
+    uniqueID: 1267932191
+    locked: 0
   - name: Tree
     uniqueID: 1901397531
     locked: 0
