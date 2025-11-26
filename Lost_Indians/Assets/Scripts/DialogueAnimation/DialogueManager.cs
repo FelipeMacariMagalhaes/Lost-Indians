@@ -11,6 +11,19 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Button botaoQuest;
 
+    [Header("Painéis de Quest")]
+    public GameObject questPainel1;
+    public GameObject questPainel2;
+    public GameObject questPainel3;
+
+    public TextMeshProUGUI questTitle1;
+    public TextMeshProUGUI questTitle2;
+    public TextMeshProUGUI questTitle3;
+
+    public TextMeshProUGUI questDesc1;
+    public TextMeshProUGUI questDesc2;
+    public TextMeshProUGUI questDesc3;
+
     [Header("Typing")]
     public float segPorLetra = 0.03f;
 
@@ -19,6 +32,10 @@ public class DialogueManager : MonoBehaviour
 
     private bool escrevendo = false;
     private bool terminouDialogo = false;
+
+    private string questNameAtual = "";
+    private string descAtual = "";
+    private int painelIDAtual = 1;
 
     public static DialogueManager instance;
 
@@ -32,20 +49,32 @@ public class DialogueManager : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         botaoQuest.gameObject.SetActive(false);
+
+        // Garantir que o botão sempre chama AceitarQuest
+        botaoQuest.onClick.RemoveAllListeners();
         botaoQuest.onClick.AddListener(AceitarQuest);
     }
 
-    public void StartDialogue(string[] linhas, string nomeNPC = "")
+    public void StartDialogue(string[] linhas, string nomeNPC, string questName, int painelID, string descQuest)
     {
+        StopAllCoroutines(); // Para qualquer digitação antiga
+
         falas = linhas;
         index = 0;
         terminouDialogo = false;
+        escrevendo = false;
 
-        dialoguePanel.SetActive(true);
+        if (!dialoguePanel.activeSelf)
+            dialoguePanel.SetActive(true);
+
         botaoQuest.gameObject.SetActive(false);
 
         nameText.text = nomeNPC;
         dialogueText.text = "";
+
+        questNameAtual = questName;
+        painelIDAtual = painelID;
+        descAtual = descQuest;
 
         StartCoroutine(TypeLine());
     }
@@ -65,7 +94,6 @@ public class DialogueManager : MonoBehaviour
                 return;
             }
 
-            // Senão, ir para próxima linha
             ProximaLinha();
         }
     }
@@ -107,9 +135,28 @@ public class DialogueManager : MonoBehaviour
 
     void AceitarQuest()
     {
-        QuestManager.instance.StartQuest("Missão do NPC");
+        QuestManager.instance.StartQuest(questNameAtual);
 
         dialoguePanel.SetActive(false);
         botaoQuest.gameObject.SetActive(false);
+
+        if (painelIDAtual == 1)
+        {
+            questPainel1.SetActive(true);
+            questTitle1.text = questNameAtual;
+            questDesc1.text = descAtual;
+        }
+        else if (painelIDAtual == 2)
+        {
+            questPainel2.SetActive(true);
+            questTitle2.text = questNameAtual;
+            questDesc2.text = descAtual;
+        }
+        else if (painelIDAtual == 3)
+        {
+            questPainel3.SetActive(true);
+            questTitle3.text = questNameAtual;
+            questDesc3.text = descAtual;
+        }
     }
 }

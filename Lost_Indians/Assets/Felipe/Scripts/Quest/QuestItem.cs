@@ -8,7 +8,7 @@ public class QuestItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (QuestManager.instance.IsQuestActive())
+            if (QuestManager.instance.IsQuestActive(questName))
             {
                 QuestManager.instance.CompleteQuest();
                 Destroy(gameObject);

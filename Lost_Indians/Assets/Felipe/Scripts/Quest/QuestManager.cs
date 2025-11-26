@@ -1,57 +1,31 @@
 using UnityEngine;
-using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
 
-    [Header("UI")]
-    public GameObject questPanel;
-    public TextMeshProUGUI questTitleText;
-    public TextMeshProUGUI questDescriptionText;
+    private string activeQuest = "";
 
-    private bool questUnlocked = false; 
-    private bool questActive = false;   
-
-    void Awake()
+    private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else
-            Destroy(gameObject);
-    }
-
-    void Start()
-    {
-        questPanel.SetActive(false);
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
     }
 
     public void StartQuest(string questName)
     {
-        questUnlocked = true;
-        questActive = true;
-
-        questPanel.SetActive(true);
-        questTitleText.text = questName;
-        questDescriptionText.text = "AAA";
+        activeQuest = questName;
+        Debug.Log("Quest iniciada: " + activeQuest);
     }
 
-    public bool IsQuestActive()
+    public bool IsQuestActive(string questName)
     {
-        return questActive;
+        return activeQuest == questName;
     }
 
     public void CompleteQuest()
     {
-        questActive = false;
-        questPanel.SetActive(false);
-    }
-
-    void Update()
-    {
-        if (questUnlocked && Input.GetKeyDown(KeyCode.Q))
-        {
-            questPanel.SetActive(!questPanel.activeSelf);
-        }
+        Debug.Log("Quest completa: " + activeQuest);
+        activeQuest = "";
     }
 }

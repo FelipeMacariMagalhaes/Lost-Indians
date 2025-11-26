@@ -2,50 +2,49 @@ using UnityEngine;
 
 public class NPCDialogueTrigger : MonoBehaviour
 {
-    [Header("Interação")]
-    public GameObject AperteE;   
-    public Vector3 ofset = new Vector3(0, 1f, 0); 
+   [Header("Interação")]
+    public GameObject AperteE;
 
     [Header("Diálogo")]
     public string[] LinhasDeDialogo;
-    public string npcName = "NPC";
+    public string npcName = "NPC 1";
+
+    [Header("Quest")]
+    public string questName = "QuestNPC1";
+    [TextArea] public string questDescription = "Descrição da primeira quest.";
+    public int painelID = 1;
 
     private bool PlayerAlcance = false;
-    private bool jaInteragiu = false;   
-    private Camera cm;
 
     void Start()
     {
-        cm = Camera.main;
-
         if (AperteE != null)
             AperteE.SetActive(false);
     }
 
     void Update()
     {
-        if (PlayerAlcance && !jaInteragiu)
+        if (PlayerAlcance && Input.GetKeyDown(KeyCode.E))
         {
-          
+            DialogueManager.instance.StartDialogue(
+                LinhasDeDialogo,
+                npcName,
+                questName,
+                painelID,
+                questDescription
+            );
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                DialogueManager.instance.StartDialogue(LinhasDeDialogo, npcName);
-
-                jaInteragiu = true;        
-                if (AperteE != null)
-                    AperteE.SetActive(false);
-            }
+            if (AperteE != null)
+                AperteE.SetActive(false);
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!jaInteragiu && other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             PlayerAlcance = true;
-            if (AperteE != null)
-                AperteE.SetActive(true);
+            if (AperteE != null) AperteE.SetActive(true);
         }
     }
 
@@ -54,9 +53,7 @@ public class NPCDialogueTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerAlcance = false;
-
-            if (!jaInteragiu && AperteE != null)
-                AperteE.SetActive(false);
+            if (AperteE != null) AperteE.SetActive(false);
         }
     }
 }

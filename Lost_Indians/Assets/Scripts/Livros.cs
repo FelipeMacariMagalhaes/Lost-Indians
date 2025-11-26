@@ -22,13 +22,13 @@ public class Livros : CountBooks
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
-            mode_Universal.modoAtivo = 1;
-            mode_Universal.AtualizarMovimentacao();
+        {           
             Player.transform.position = Teleport_flashOut.transform.position;
             Flashbacks.Invoke();
             flashOn = true;
-            transform.localScale = new Vector2(13, 5);
+            mode_Universal.modoAtivo = 1;
+            mode_Universal.AtualizarMovimentacao();
+           
         }
     }
 }
