@@ -22,13 +22,18 @@ public class Button_accept : MonoBehaviour
         }
 
         else if (nPC.questStage == 1) 
-        { 
-            Quest2.Invoke();
+        {
+            Quest1.Invoke();
         }
 
         else if (nPC.questStage == 2)
         {
+            Quest2.Invoke();
+        }
+
+        else if(nPC.questStage == 3)
+        {
             Quest3.Invoke();
-        } 
+        }
     }
 }

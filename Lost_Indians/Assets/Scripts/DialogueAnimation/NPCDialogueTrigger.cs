@@ -9,6 +9,7 @@ public class NPCDialogueTrigger : MonoBehaviour
     public string[] LinhasDeDialogoFase1;  // Diálogo para a fase 1 (Aceitar quest 1)
     public string[] LinhasDeDialogoFase2;  // Diálogo para a fase 2 (Aceitar quest 2)
     public string[] LinhasDeDialogoFase3;  // Diálogo para a fase 3 (Aceitar quest 3)
+    public string[] LinhasDeDialogoFase4;  // Diálogo para a fase 4 (Aceitar quest 4)
     public string npcName = "NPC 1";
 
     [Header("Quest")]
@@ -21,8 +22,14 @@ public class NPCDialogueTrigger : MonoBehaviour
     public string questName3 = "Quest 3";
     public string questDescription3 = "Descrição da Quest 3.";
 
+    public string questName4 = "Quest 4";
+    public string questDescription4 = "Descrição da Quest 4.";
+
+    public string questName5 = "Quest 5";
+    public string questDescription5 = "Descrição da Quest 5.";
+
     private bool PlayerAlcance = false;
-    public int questStage = 0;  // Fase da quest (0 = nenhuma quest aceita, 1 = quest 1, 2 = quest 2, 3 = quest 3)
+    public int questStage = 0;  // Fase da quest (0 = nenhuma quest aceita, 1 = quest 1, 2 = quest 2, 3 = quest 3, 4 = quest 4)
 
     void Start()
     {
@@ -63,7 +70,27 @@ public class NPCDialogueTrigger : MonoBehaviour
                     questName3,
                     questDescription3
                 );
-                questStage = 3;  // Passa para a fase 3 ou completa a missão
+                questStage = 3;  // Passa para a fase 3
+            }
+            else if (questStage == 3)  // Se a quest 3 foi aceita
+            {
+                DialogueManager.instance.StartDialogue(
+                    LinhasDeDialogoFase4,
+                    npcName,
+                    questName4,
+                    questDescription4
+                );
+                questStage = 4;  // Passa para a fase 4
+            }
+            else if(questStage == 4)
+            {
+                DialogueManager.instance.StartDialogue(
+                   LinhasDeDialogoFase4,
+                   npcName,
+                   questName5,
+                   questDescription5
+               );
+                questStage = 5;
             }
 
             if (AperteE != null)
