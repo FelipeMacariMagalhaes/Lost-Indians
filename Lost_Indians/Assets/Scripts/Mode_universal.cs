@@ -45,6 +45,7 @@ public class Mode_universal : MonoBehaviour
         else 
         {
             Rigidbody2D.gravityScale = 1;
+            Rigidbody2D.linearVelocity = Vector2.zero;
             plataform = true;
         }
         anim.SetBool("Plataform", plataform);
