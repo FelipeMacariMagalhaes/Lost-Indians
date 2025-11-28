@@ -690,6 +690,71 @@ MonoBehaviour:
   falasJogador:
   - Where am I?
   dialogoAtivo: 0
+--- !u!1001 &1102888034
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1896463594469111553, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: mode_Universal
+      value: 
+      objectReference: {fileID: 2007478658}
+    - target: {fileID: 1896463594469111553, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: modoParaAtivar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108872286262388515, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948269936315948465, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
+      propertyPath: m_Name
+      value: Troca_topdown_script
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c34980be5b9f0a49aa172f028f5390d, type: 3}
 --- !u!1 &1110920050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,6 +1253,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 552697be9a660484c928b02a1ba37cdb, type: 3}
+--- !u!114 &2007478658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2367189031589183417, guid: 552697be9a660484c928b02a1ba37cdb, type: 3}
+  m_PrefabInstance: {fileID: 2007478657}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76bb38145df9da24fa81bb59c781f073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mode_universal
 --- !u!1 &2144841871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,3 +1772,4 @@ SceneRoots:
   - {fileID: 790693769}
   - {fileID: 891946507}
   - {fileID: 2007478657}
+  - {fileID: 1102888034}
